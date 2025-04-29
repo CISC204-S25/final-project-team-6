@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://dad3fpc0fy074"]
+
+[ext_resource type="PackedScene" uid="uid://w1nmtfs3vp2p" path="res://FlyingPlayer.tscn" id="1_27l13"]
+[ext_resource type="PackedScene" uid="uid://3beby0r72j1q" path="res://SwimmingPlayer.tscn" id="2_xoh7a"]
+[ext_resource type="Script" path="res://water.gd" id="3_dg28l"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_nmia7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lttuj"]
+size = Vector2(1151, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ukx40"]
+size = Vector2(1156.5, 269.5)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(233, 237)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Ground"]
+position = Vector2(345.5, 356.75)
+scale = Vector2(1151, 108.5)
+mesh = SubResource("BoxMesh_nmia7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(344.5, 364)
+shape = SubResource("RectangleShape2D_lttuj")
+
+[node name="Water" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("3_dg28l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Water"]
+position = Vector2(576.75, 402.25)
+shape = SubResource("RectangleShape2D_ukx40")
+
+[node name="ColorRect" type="ColorRect" parent="Water"]
+offset_left = 2.0
+offset_top = 267.0
+offset_right = 1154.0
+offset_bottom = 542.0
+color = Color(0.489899, 0.647625, 0.999723, 0.333333)
+
+[node name="FlyingPlayer" parent="." instance=ExtResource("1_27l13")]
+position = Vector2(363, 165)
+
+[node name="SwimmingPlayer" parent="." instance=ExtResource("2_xoh7a")]
+position = Vector2(727, 367)
+
+[connection signal="body_entered" from="Water" to="Water" method="_on_body_entered"]
+[connection signal="body_exited" from="Water" to="Water" method="_on_body_exited"]

@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://w1nmtfs3vp2p"]
+
+[ext_resource type="Texture2D" uid="uid://clu4hk58onn8d" path="res://icon.svg" id="1_rjktu"]
+[ext_resource type="Script" path="res://FlyingPlayer.gd" id="2_noifm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gnpvo"]
+size = Vector2(132, 130)
+
+[node name="FlyingPlayer" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("2_noifm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_rjktu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_gnpvo")
