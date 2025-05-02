@@ -1,9 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://biyav074fh1es"]
+[gd_scene load_steps=6 format=3 uid="uid://biyav074fh1es"]
 
 [ext_resource type="Script" path="res://level_2.gd" id="1_w02t2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7gino"]
 size = Vector2(1172, 375)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e7k34"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_587nr"]
+size = Vector2(1176, 298)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dd0ew"]
 size = Vector2(1176, 294)
@@ -23,6 +28,17 @@ metadata/_edit_use_anchors_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sky"]
 position = Vector2(576, 177.5)
 shape = SubResource("RectangleShape2D_7gino")
+
+[node name="Pelican_Collsion" type="StaticBody2D" parent="."]
+position = Vector2(-3, 372)
+physics_material_override = SubResource("PhysicsMaterial_e7k34")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelican_Collsion"]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(578, 141)
+shape = SubResource("RectangleShape2D_587nr")
 
 [node name="ocean" type="Area2D" parent="."]
 metadata/_edit_group_ = true
