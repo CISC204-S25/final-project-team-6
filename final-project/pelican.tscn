@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://cv1x731ovllyw"]
+
+[ext_resource type="Texture2D" uid="uid://dehiiumqpw6q" path="res://pelican/pelican.png" id="1_mas1v"]
+[ext_resource type="Texture2D" uid="uid://c0rm5dpem2dqx" path="res://pelican/pelican_1.png" id="2_578j5"]
+[ext_resource type="Texture2D" uid="uid://hqkh4iasqd36" path="res://pelican/pelican_2.png" id="3_bmepb"]
+[ext_resource type="Texture2D" uid="uid://dhi8xse0wyx14" path="res://pelican/pelican_3.png" id="4_2scs0"]
+[ext_resource type="Texture2D" uid="uid://dojf4dla48gna" path="res://pelican/pelican_4.png" id="5_g3rmn"]
+[ext_resource type="Texture2D" uid="uid://d26dqy30e4lru" path="res://pelican/pelican_5.png" id="6_j4qcy"]
+[ext_resource type="Texture2D" uid="uid://b5xi16he7ttrj" path="res://pelican/pelican_6.png" id="7_1tl8w"]
+[ext_resource type="Texture2D" uid="uid://c3442gv8qtps7" path="res://pelican/pelican_7.png" id="8_wiaar"]
+[ext_resource type="Texture2D" uid="uid://cprnen2h7sac7" path="res://pelican/pelican_8.png" id="9_s36o3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ms3ca"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mas1v")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_578j5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bmepb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_2scs0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_g3rmn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_j4qcy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_1tl8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wiaar")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_s36o3")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nvt34"]
+radius = 237.5
+height = 548.0
+
+[node name="pelican" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_ms3ca")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(14, 4)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_nvt34")
