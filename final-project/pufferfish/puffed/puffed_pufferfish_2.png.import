@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c0rm5dpem2dqx"
-path="res://.godot/imported/pelican_1.png-82911269383d0fe3f78cd543956ce4fa.ctex"
+uid="uid://de4muosejq3ws"
+path="res://.godot/imported/puffed_pufferfish_2.png-3b85057e1a2fdd19298e136eef11eb23.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pelican/pelican_1.png"
-dest_files=["res://.godot/imported/pelican_1.png-82911269383d0fe3f78cd543956ce4fa.ctex"]
+source_file="res://pufferfish/puffed/puffed_pufferfish_2.png"
+dest_files=["res://.godot/imported/puffed_pufferfish_2.png-3b85057e1a2fdd19298e136eef11eb23.ctex"]
 
 [params]
 

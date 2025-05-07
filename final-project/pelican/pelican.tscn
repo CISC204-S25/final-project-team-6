@@ -1,23 +1,71 @@
-[gd_scene load_steps=12 format=3 uid="uid://cv1x731ovllyw"]
+[gd_scene load_steps=17 format=3 uid="uid://cv1x731ovllyw"]
 
 [ext_resource type="Texture2D" uid="uid://dehiiumqpw6q" path="res://pelican/pelican.png" id="1_mas1v"]
-[ext_resource type="Texture2D" uid="uid://c0rm5dpem2dqx" path="res://pelican/pelican_1.png" id="2_578j5"]
-[ext_resource type="Texture2D" uid="uid://hqkh4iasqd36" path="res://pelican/pelican_2.png" id="3_bmepb"]
-[ext_resource type="Texture2D" uid="uid://dhi8xse0wyx14" path="res://pelican/pelican_3.png" id="4_2scs0"]
-[ext_resource type="Texture2D" uid="uid://dojf4dla48gna" path="res://pelican/pelican_4.png" id="5_g3rmn"]
-[ext_resource type="Texture2D" uid="uid://d26dqy30e4lru" path="res://pelican/pelican_5.png" id="6_j4qcy"]
-[ext_resource type="Texture2D" uid="uid://b5xi16he7ttrj" path="res://pelican/pelican_6.png" id="7_1tl8w"]
-[ext_resource type="Texture2D" uid="uid://c3442gv8qtps7" path="res://pelican/pelican_7.png" id="8_wiaar"]
-[ext_resource type="Texture2D" uid="uid://cprnen2h7sac7" path="res://pelican/pelican_8.png" id="9_s36o3"]
+[ext_resource type="Texture2D" uid="uid://8jxu1np0ir1v" path="res://pelican/flying/flying_pelican_4.png" id="1_nsn0f"]
+[ext_resource type="Texture2D" uid="uid://bmx5t26o4hibo" path="res://pelican/flying/flying_pelican_3.png" id="2_3hv0d"]
+[ext_resource type="Texture2D" uid="uid://c0rm5dpem2dqx" path="res://pelican/walking/pelican_1.png" id="2_578j5"]
+[ext_resource type="Texture2D" uid="uid://isyyab7h3i0v" path="res://pelican/flying/flying_pelican_5.png" id="3_43vmh"]
+[ext_resource type="Texture2D" uid="uid://hqkh4iasqd36" path="res://pelican/walking/pelican_2.png" id="3_bmepb"]
+[ext_resource type="Texture2D" uid="uid://dhi8xse0wyx14" path="res://pelican/walking/pelican_3.png" id="4_2scs0"]
+[ext_resource type="Texture2D" uid="uid://dojf4dla48gna" path="res://pelican/walking/pelican_4.png" id="5_g3rmn"]
+[ext_resource type="Texture2D" uid="uid://hmiwlylbmybl" path="res://pelican/flying/flying_pelican_1.png" id="5_nhadt"]
+[ext_resource type="Texture2D" uid="uid://b1odm3cgaur03" path="res://pelican/flying/flying_pelican_2.png" id="6_1wdin"]
+[ext_resource type="Texture2D" uid="uid://d26dqy30e4lru" path="res://pelican/walking/pelican_5.png" id="6_j4qcy"]
+[ext_resource type="Texture2D" uid="uid://b5xi16he7ttrj" path="res://pelican/walking/pelican_6.png" id="7_1tl8w"]
+[ext_resource type="Texture2D" uid="uid://c3442gv8qtps7" path="res://pelican/walking/pelican_7.png" id="8_wiaar"]
+[ext_resource type="Texture2D" uid="uid://cprnen2h7sac7" path="res://pelican/walking/pelican_8.png" id="9_s36o3"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ms3ca"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nsn0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hv0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_43vmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hv0d")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("1_mas1v")
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_nhadt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1wdin")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hv0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("1_nsn0f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hv0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_43vmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_3hv0d")
+}],
+"loop": true,
+"name": &"take_off",
 "speed": 5.0
 }, {
 "frames": [{
@@ -59,7 +107,9 @@ height = 548.0
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)
 sprite_frames = SubResource("SpriteFrames_ms3ca")
-animation = &"idle"
+animation = &"flying"
+frame = 2
+frame_progress = 0.161143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(14, 4)
