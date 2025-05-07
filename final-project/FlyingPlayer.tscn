@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://w1nmtfs3vp2p"]
 
-[ext_resource type="Texture2D" uid="uid://clu4hk58onn8d" path="res://icon.svg" id="1_rjktu"]
+[ext_resource type="Texture2D" uid="uid://dehiiumqpw6q" path="res://pelican/pelican.png" id="2_fpvyb"]
 [ext_resource type="Script" path="res://FlyingPlayer.gd" id="2_noifm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gnpvo"]
-size = Vector2(132, 130)
+size = Vector2(136, 126)
 
 [node name="FlyingPlayer" type="CharacterBody2D"]
 collision_layer = 3
@@ -12,9 +12,9 @@ collision_mask = 3
 script = ExtResource("2_noifm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-rotation = 1.5708
-texture = ExtResource("1_rjktu")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_fpvyb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_gnpvo")

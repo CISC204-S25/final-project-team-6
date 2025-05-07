@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 @export var gravity = 900.0
 @export var jump_force = 400.0
+@onready var sprite = $Sprite2D
 
 var in_water: bool = true
 
@@ -22,6 +23,8 @@ func ground_movement(delta):
 	velocity.x = lerp(velocity.x, input_direction * max_velocity, 0.1)
 
 	velocity.y += gravity * delta
+	if input_direction.x != 0:
+		sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x) * -1
 
 	if is_on_floor() and Input.is_action_just_pressed("FishUp"):
 		velocity.y = -jump_force
@@ -35,6 +38,8 @@ func swim_movement(delta):
 	if input_direction != Vector2.ZERO:
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
+		if input_direction.x != 0:
+			sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x) * -1
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
 
