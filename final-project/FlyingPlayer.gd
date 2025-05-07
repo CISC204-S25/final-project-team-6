@@ -3,6 +3,7 @@ extends CharacterBody2D
 @export var acceleration = 500.0 # acceleration in pixels/second/second
 @export var max_velocity = 1000.0 # max velocity in pixels/second
 @export var push_force = 100.0
+@onready var sprite = $Sprite2D
 
 func _physics_process(delta):
 	var input_direction = Vector2(
@@ -13,6 +14,10 @@ func _physics_process(delta):
 	if input_direction != Vector2.ZERO:
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
+		# Flip sprite based on horizontal direction
+		if input_direction.x != 0:
+			
+			sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x)
 	else:
 		# Optionally add friction or damping when not pressing input
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)

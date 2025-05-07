@@ -7,10 +7,12 @@
 size = Vector2(132, 130)
 
 [node name="FlyingPlayer" type="CharacterBody2D"]
+collision_layer = 3
 collision_mask = 3
 script = ExtResource("2_noifm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
 texture = ExtResource("1_rjktu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
