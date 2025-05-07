@@ -4,7 +4,29 @@ extends CharacterBody2D
 @export var max_velocity = 1000.0 # max velocity in pixels/second
 @export var push_force = 100.0
 
-func _physics_process(delta):
+@export var gravity = 900.0
+@export var jump_force = 400.0
+
+var in_water: bool = true
+
+func _on_water_area_body_entered(body):
+	if body == self:
+		in_water = true
+
+func _on_water_area_body_exited(body):
+	if body == self:
+		in_water = false
+
+func ground_movement(delta):
+	var input_direction = Input.get_axis("FishLeft", "FishRight")
+	velocity.x = lerp(velocity.x, input_direction * max_velocity, 0.1)
+
+	velocity.y += gravity * delta
+
+	if is_on_floor() and Input.is_action_just_pressed("FishUp"):
+		velocity.y = -jump_force
+
+func swim_movement(delta):
 	var input_direction = Vector2(
 		Input.get_axis("FishLeft", "FishRight"),
 		Input.get_axis("FishUp", "FishDown")
@@ -14,12 +36,21 @@ func _physics_process(delta):
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
 	else:
-		# Optionally add friction or damping when not pressing input
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
 
-	# Clamp to max velocity
 	if velocity.length() > max_velocity:
 		velocity = velocity.normalized() * max_velocity
+
+		
+func _physics_process(delta):
+	var input_direction = Vector2(
+		Input.get_axis("FishLeft", "FishRight"),
+		Input.get_axis("FishUp", "FishDown")
+	)
+	if in_water:
+		swim_movement(delta)
+	else:
+		ground_movement(delta)
 
 	move_and_slide()
 	push_objects()

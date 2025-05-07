@@ -21,8 +21,8 @@ script = ExtResource("1_lminj")
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 offset_left = 1.0
 offset_top = 5.0
-offset_right = 1159.0
-offset_bottom = 653.0
+offset_right = 1157.0
+offset_bottom = 656.0
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -93,70 +93,67 @@ offset_right = 1154.0
 offset_bottom = 542.0
 color = Color(0.489899, 0.647625, 0.999723, 0.333333)
 
-[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
-layout_mode = 2
-
-[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
 disable_3d = true
 handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport2"]
 position = Vector2(572, 367)
 
-[node name="Environment" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+[node name="Environment" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport2"]
 
-[node name="Ground" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+[node name="Ground" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment"]
 position = Vector2(233, 237)
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Ground"]
 position = Vector2(345.5, 356.75)
 scale = Vector2(1151, 108.5)
 mesh = SubResource("BoxMesh_nmia7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Ground"]
 position = Vector2(344.5, 364)
 shape = SubResource("RectangleShape2D_lttuj")
 
-[node name="Ground2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+[node name="Ground2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment"]
 position = Vector2(288, 400)
 rotation = -0.698132
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground2"]
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Ground2"]
 position = Vector2(345.5, 356.75)
 scale = Vector2(1151, 108.5)
 mesh = SubResource("BoxMesh_nmia7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Ground2"]
 position = Vector2(344.5, 364)
 shape = SubResource("RectangleShape2D_lttuj")
 
-[node name="Water" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+[node name="Water" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment"]
 
-[node name="FlyingWater" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water"]
+[node name="FlyingWater" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Water"]
 collision_layer = 4
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/FlyingWater"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Water/FlyingWater"]
 position = Vector2(574.75, 406)
 shape = SubResource("RectangleShape2D_56377")
 
-[node name="SwimmingWater" type="Area2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water"]
+[node name="SwimmingWater" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Water"]
 collision_layer = 2
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Water/SwimmingWater"]
 position = Vector2(576.75, 402.25)
 shape = SubResource("RectangleShape2D_ukx40")
 
-[node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer/SubViewport2/Environment/Water/SwimmingWater"]
 offset_left = 2.0
 offset_top = 267.0
 offset_right = 1154.0
 offset_bottom = 542.0
 color = Color(0.489899, 0.647625, 0.999723, 0.333333)
 
-[node name="SwimmingPlayer" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("2_xoh7a")]
+[node name="SwimmingPlayer" parent="HBoxContainer/SubViewportContainer/SubViewport2" instance=ExtResource("2_xoh7a")]
 position = Vector2(572, 367)
 collision_layer = 2
