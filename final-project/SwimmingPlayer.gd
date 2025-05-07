@@ -18,6 +18,8 @@ func _on_water_area_body_exited(body):
 		in_water = false
 
 func ground_movement(delta):
+	$AnimatedSprite2D.play("puffing_up")
+	$AnimatedSprite2D.play("puffed")
 	var input_direction = Input.get_axis("FishLeft", "FishRight")
 	velocity.x = lerp(velocity.x, input_direction * max_velocity, 0.1)
 
@@ -33,9 +35,11 @@ func swim_movement(delta):
 	)
 
 	if input_direction != Vector2.ZERO:
+		$AnimatedSprite2D.play("swimming")
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
 	else:
+		$AnimatedSprite2D.play("idle")
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
 
 	if velocity.length() > max_velocity:

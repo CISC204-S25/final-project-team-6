@@ -110,10 +110,11 @@ script = ExtResource("15_152xx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.08, 0.08)
 sprite_frames = SubResource("SpriteFrames_ms3ca")
-animation = &"idle"
-frame_progress = 0.347764
+animation = &"flying"
+frame = 2
+frame_progress = 0.161143
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8, -2)
+position = Vector2(14, 4)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_nvt34")

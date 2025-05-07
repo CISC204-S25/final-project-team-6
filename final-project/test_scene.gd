@@ -4,12 +4,12 @@ extends Node2D
 	"1": {
 		viewport = $"HBoxContainer/SubViewportContainer/SubViewport1",
 		camera = $"HBoxContainer/SubViewportContainer/SubViewport1/Camera2D1",
-		player = $HBoxContainer/SubViewportContainer/SubViewport1/FlyingPlayer,
+		player = $HBoxContainer/SubViewportContainer/SubViewport1/pelican,
 	},
 	"2" : {
 		viewport = $"HBoxContainer/SubViewportContainer2/SubViewport2",
 		camera = $"HBoxContainer/SubViewportContainer2/SubViewport2/Camera2D2",
-		player = $HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer,
+		player = $HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish,
 	}
 }
 

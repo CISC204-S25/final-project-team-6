@@ -3,21 +3,30 @@ extends CharacterBody2D
 @export var acceleration = 500.0 # acceleration in pixels/second/second
 @export var max_velocity = 1000.0 # max velocity in pixels/second
 @export var push_force = 100.0
-@onready var sprite = $Sprite2D
+@onready var sprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	var input_direction = Vector2(
 		Input.get_axis("BirdLeft", "BirdRight"),
 		Input.get_axis("BirdUp", "BirdDown")
 	)
+	
+	if input_direction.x:
+		sprite.play("walking")
+
+	if input_direction.y:
+		sprite.play("flying")
 
 	if input_direction != Vector2.ZERO:
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
 		# Flip sprite based on horizontal direction
 		if input_direction.x != 0:
-			
-			sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x)
+			$AnimatedSprite2D.flip_v = false
+			# See the note below about the following boolean assignment.
+			$AnimatedSprite2D.flip_h = velocity.x < 0
+			#
+			#sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x)
 	else:
 		# Optionally add friction or damping when not pressing input
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
@@ -25,6 +34,14 @@ func _physics_process(delta):
 	# Clamp to max velocity
 	if velocity.length() > max_velocity:
 		velocity = velocity.normalized() * max_velocity
+	
+	position += velocity * delta
+	
+	if velocity.x < 0:
+		$AnimatedSprite2D.flip_h = true
+	else:
+		$AnimatedSprite2D.flip_h = false
+
 
 	move_and_slide()
 	push_objects()
