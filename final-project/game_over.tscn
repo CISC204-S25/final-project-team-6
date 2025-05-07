@@ -1,3 +1,3 @@
 [gd_scene format=3 uid="uid://oams0dj2iaag"]
 
-[node name="GameOver" type="CanvasGroup"]
+[node name="GameOver" type="CanvasLayer"]
