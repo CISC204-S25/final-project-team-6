@@ -1,12 +1,26 @@
-[gd_scene load_steps=10 format=3 uid="uid://bab6pnm5d3icy"]
+[gd_scene load_steps=24 format=3 uid="uid://bab6pnm5d3icy"]
 
 [ext_resource type="Texture2D" uid="uid://b26fabo05dqoc" path="res://pufferfish/Untitled_Artwork (7).png" id="1_44b8x"]
-[ext_resource type="Texture2D" uid="uid://brnh437tlpu3n" path="res://pufferfish/fish_1.png" id="2_3ij2a"]
-[ext_resource type="Texture2D" uid="uid://c2tqr8nsrrr5j" path="res://pufferfish/fish_2.png" id="3_4tv78"]
-[ext_resource type="Texture2D" uid="uid://dupyyned2mfs3" path="res://pufferfish/fish_3.png" id="4_u5dwe"]
-[ext_resource type="Texture2D" uid="uid://1ci6s0nh82fh" path="res://pufferfish/fish_4.png" id="5_vy6gg"]
-[ext_resource type="Texture2D" uid="uid://du7sgxu7uuen7" path="res://pufferfish/fish_5.png" id="6_g05gw"]
-[ext_resource type="Texture2D" uid="uid://b0p5f76v3lawv" path="res://pufferfish/fish_6.png" id="7_7rgcc"]
+[ext_resource type="Script" path="res://SwimmingPlayer.gd" id="1_gly67"]
+[ext_resource type="Texture2D" uid="uid://brnh437tlpu3n" path="res://pufferfish/swimming/fish_1.png" id="2_3ij2a"]
+[ext_resource type="Texture2D" uid="uid://dslrajjudh2up" path="res://pufferfish/puffed/puffed_pufferfish_1.png" id="2_28q83"]
+[ext_resource type="Texture2D" uid="uid://c2tqr8nsrrr5j" path="res://pufferfish/swimming/fish_2.png" id="3_4tv78"]
+[ext_resource type="Texture2D" uid="uid://de4muosejq3ws" path="res://pufferfish/puffed/puffed_pufferfish_2.png" id="3_uho2e"]
+[ext_resource type="Texture2D" uid="uid://dupyyned2mfs3" path="res://pufferfish/swimming/fish_3.png" id="4_u5dwe"]
+[ext_resource type="Texture2D" uid="uid://50s43h512vh6" path="res://pufferfish/puffed/puffed_pufferfish_3.png" id="4_ycbvu"]
+[ext_resource type="Texture2D" uid="uid://bhtdxvddvbdq6" path="res://pufferfish/puffed/puffed_pufferfish_4.png" id="5_ko81p"]
+[ext_resource type="Texture2D" uid="uid://1ci6s0nh82fh" path="res://pufferfish/swimming/fish_4.png" id="5_vy6gg"]
+[ext_resource type="Texture2D" uid="uid://gac6jlnki0bw" path="res://pufferfish/puffed/puffed_pufferfish_5.png" id="6_cdq5q"]
+[ext_resource type="Texture2D" uid="uid://du7sgxu7uuen7" path="res://pufferfish/swimming/fish_5.png" id="6_g05gw"]
+[ext_resource type="Texture2D" uid="uid://b0p5f76v3lawv" path="res://pufferfish/swimming/fish_6.png" id="7_7rgcc"]
+[ext_resource type="Texture2D" uid="uid://k637q8iwj12l" path="res://pufferfish/puffed/puffed_pufferfish_6.png" id="7_t0jc5"]
+[ext_resource type="Texture2D" uid="uid://5k36j5p8o7x3" path="res://pufferfish/puffing/puffingup_pufferfish_1.png" id="8_lbkjf"]
+[ext_resource type="Texture2D" uid="uid://dyodjek8lifdf" path="res://pufferfish/puffing/puffingup_pufferfish_2.png" id="9_1y1dj"]
+[ext_resource type="Texture2D" uid="uid://3efau7k00hb" path="res://pufferfish/puffing/puffingup_pufferfish_3.png" id="10_vve0l"]
+[ext_resource type="Texture2D" uid="uid://didoa5dye61cb" path="res://pufferfish/puffing/puffingup_pufferfish_4.png" id="11_l8sc3"]
+[ext_resource type="Texture2D" uid="uid://2oo3uxi05ssk" path="res://pufferfish/puffing/puffingup_pufferfish_5.png" id="12_8l7t0"]
+[ext_resource type="Texture2D" uid="uid://caamr7bexpopy" path="res://pufferfish/puffing/puffingup_pufferfish_6.png" id="13_0orno"]
+[ext_resource type="Texture2D" uid="uid://dwynivj4ma8gr" path="res://pufferfish/puffing/puffingup_pufferfish_7.png" id="14_hef6d"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8o4g"]
 animations = [{
@@ -16,6 +30,55 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_28q83")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_uho2e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ycbvu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ko81p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_cdq5q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_t0jc5")
+}],
+"loop": true,
+"name": &"puffed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_lbkjf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_1y1dj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_vve0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_l8sc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_8l7t0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0orno")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_hef6d")
+}],
+"loop": true,
+"name": &"puffing_up",
 "speed": 5.0
 }, {
 "frames": [{
@@ -43,17 +106,20 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxfpu"]
-radius = 401.0
-height = 1390.0
+radius = 24.0
+height = 70.0
 
 [node name="pufferfish" type="CharacterBody2D"]
+position = Vector2(-2, 5)
+script = ExtResource("1_gly67")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_k8o4g")
-animation = &"swimming"
-frame_progress = 0.852896
+animation = &"puffed"
+frame_progress = 0.227559
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 14)
+position = Vector2(3, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxfpu")
