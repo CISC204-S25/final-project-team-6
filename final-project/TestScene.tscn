@@ -164,4 +164,4 @@ collision_layer = 2
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_entered"]
 [connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_exited"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_entered"]
-[connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_exited"]
+[connection signal="body_exited" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_exited"]
