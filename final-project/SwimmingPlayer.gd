@@ -12,21 +12,55 @@ var in_water: bool = true
 @export var water_state_cooldown = 0.01 # in seconds
 var water_state_timer = 0.0
 
+var last_water_position: Vector2
+@export var out_of_water_duration = 10.0 # seconds allowed out of water
+var out_of_water_timer = 0.0
+
+var pickedup: bool = false
+
+func pickup():
+	pickedup = true
+
+func letgo():
+	pickedup = false
+
 func _on_water_area_body_entered(body):
 	if body == self and water_state_timer <= 0.0:
 		in_water = true
 		water_state_timer = water_state_cooldown
+		last_water_position = global_position # Save current position
+		out_of_water_timer = 0.0 # reset out-of-water timer
+		sprite.modulate = Color(1, 1, 1)
 		print("Entered water")
 
 func _on_water_area_body_exited(body):
 	if body == self and water_state_timer <= 0.0:
 		in_water = false
 		water_state_timer = water_state_cooldown
+		last_water_position = global_position # Save current position
 		print("Exited water")
 
 func _process(delta):
 	if water_state_timer > 0.0:
 		water_state_timer -= delta
+	
+	if not in_water and not pickedup:
+		out_of_water_timer += delta
+		
+		# Flash red if timer is near end (last 1 second)
+		if out_of_water_duration - out_of_water_timer <= 3.0:
+			# Flashing effect using sine wave
+			var flash_intensity = sin(2 * PI * 5 * out_of_water_timer) * 0.5 + 0.5 # from 0 to 1
+			sprite.modulate = Color(1, 1 - flash_intensity, 1 - flash_intensity) # red tint
+		else:
+			sprite.modulate = Color(1, 1, 1) # normal
+		
+		if out_of_water_timer >= out_of_water_duration:
+			global_position = last_water_position
+			velocity = Vector2.ZERO
+			out_of_water_timer = 0.0
+	else:
+		out_of_water_timer = 0.0
 
 func ground_movement(delta):
 	$AnimatedSprite2D.play("puffing_up")

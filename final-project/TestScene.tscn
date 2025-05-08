@@ -162,3 +162,5 @@ color = Color(0.489899, 0.647625, 0.999723, 0.333333)
 
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_water_area_body_entered"]
 [connection signal="body_exited" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_water_area_body_exited"]
+
+[editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]
