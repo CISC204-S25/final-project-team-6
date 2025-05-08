@@ -5,7 +5,13 @@ extends CharacterBody2D
 @export var push_force = 100.0
 @onready var sprite = $AnimatedSprite2D
 
+@export var pickup_distance = 140.0
+var carrying_player = false
+var swimming_player: CharacterBody2D
+	
 func _physics_process(delta):
+	var main_scene = get_tree().get_root().get_node("MainScene")
+	var swimming_player = main_scene.get_node("HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish")
 	var input_direction = Vector2(
 		Input.get_axis("BirdLeft", "BirdRight"),
 		Input.get_axis("BirdUp", "BirdDown")
@@ -34,6 +40,27 @@ func _physics_process(delta):
 	# Clamp to max velocity
 	if velocity.length() > max_velocity:
 		velocity = velocity.normalized() * max_velocity
+	
+	if Input.is_action_just_pressed("BirdPickup") and not carrying_player and swimming_player:
+		print("Pickup")
+		if global_position.distance_to(swimming_player.global_position) < pickup_distance:
+			print("In range")
+			carrying_player = true
+			swimming_player.set_physics_process(false) # Optional: disables their movement
+	elif Input.is_action_just_pressed("BirdPickup") and carrying_player:
+		print("Let Down")
+		# Drop the player
+		carrying_player = false
+		swimming_player.set_physics_process(true) # Re-enable movement
+
+	if carrying_player and swimming_player:
+		var offset = Vector2(0, 140) # distance to the side
+		swimming_player.global_position = global_position + offset
+		swimming_player.visible = false # Hide while carried
+	else:
+		if swimming_player:
+			swimming_player.visible = true # Show when dropped
+
 	
 	position += velocity * delta
 	

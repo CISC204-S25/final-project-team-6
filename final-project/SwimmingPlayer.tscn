@@ -1,16 +1,17 @@
 [gd_scene load_steps=3 format=3 uid="uid://3beby0r72j1q"]
 
-[ext_resource type="Texture2D" uid="uid://clu4hk58onn8d" path="res://icon.svg" id="1_wisa4"]
+[ext_resource type="Texture2D" uid="uid://brnh437tlpu3n" path="res://pufferfish/swimming/fish_1.png" id="2_0qys0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k4on4"]
-size = Vector2(131, 131)
+size = Vector2(102, 52)
 
 [node name="SwimmingPlayer" type="CharacterBody2D"]
 collision_mask = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_wisa4")
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("2_0qys0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 0.5)
+position = Vector2(-1, 4)
 shape = SubResource("RectangleShape2D_k4on4")
