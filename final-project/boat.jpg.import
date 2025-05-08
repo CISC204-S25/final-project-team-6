@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhi8xse0wyx14"
-path="res://.godot/imported/pelican_3.png-04d3d8981a0c72ef4ad24cfb00b3c471.ctex"
+uid="uid://bpuh6cnmsoum"
+path="res://.godot/imported/boat.jpg-44c1b95495b60b7cc81b9fc52676f64a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pelican/pelican_3.png"
-dest_files=["res://.godot/imported/pelican_3.png-04d3d8981a0c72ef4ad24cfb00b3c471.ctex"]
+source_file="res://boat.jpg"
+dest_files=["res://.godot/imported/boat.jpg-44c1b95495b60b7cc81b9fc52676f64a.ctex"]
 
 [params]
 

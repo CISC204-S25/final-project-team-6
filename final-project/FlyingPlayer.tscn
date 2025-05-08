@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://w1nmtfs3vp2p"]
+[gd_scene load_steps=3 format=3 uid="uid://w1nmtfs3vp2p"]
 
 [ext_resource type="Texture2D" uid="uid://dehiiumqpw6q" path="res://pelican/pelican.png" id="2_fpvyb"]
 [ext_resource type="Script" path="res://FlyingPlayer.gd" id="2_noifm"]
@@ -9,7 +9,6 @@ size = Vector2(136, 126)
 [node name="FlyingPlayer" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
-script = ExtResource("2_noifm")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.08)

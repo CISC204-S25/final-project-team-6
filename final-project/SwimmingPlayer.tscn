@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://3beby0r72j1q"]
+[gd_scene load_steps=3 format=3 uid="uid://3beby0r72j1q"]
 
 [ext_resource type="Script" path="res://SwimmingPlayer.gd" id="1_0egcd"]
 [ext_resource type="Texture2D" uid="uid://brnh437tlpu3n" path="res://pufferfish/fish_1.png" id="2_0qys0"]
@@ -8,7 +8,6 @@ size = Vector2(102, 52)
 
 [node name="SwimmingPlayer" type="CharacterBody2D"]
 collision_mask = 3
-script = ExtResource("1_0egcd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.08, 0.08)

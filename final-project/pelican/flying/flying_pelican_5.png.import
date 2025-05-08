@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cprnen2h7sac7"
-path="res://.godot/imported/pelican_8.png-56163029ff832c779b6d9f902e41d392.ctex"
+uid="uid://isyyab7h3i0v"
+path="res://.godot/imported/flying_pelican_5.png-fab031e9f2cdb07f9b41a89eedcff596.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pelican/pelican_8.png"
-dest_files=["res://.godot/imported/pelican_8.png-56163029ff832c779b6d9f902e41d392.ctex"]
+source_file="res://pelican/flying/flying_pelican_5.png"
+dest_files=["res://.godot/imported/flying_pelican_5.png-fab031e9f2cdb07f9b41a89eedcff596.ctex"]
 
 [params]
 
