@@ -13,7 +13,7 @@ size = Vector2(1151, 125)
 size = Vector2(1156.5, 280)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ukx40"]
-size = Vector2(1156.5, 269.5)
+size = Vector2(1156.5, 282)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_lminj")
@@ -143,11 +143,11 @@ position = Vector2(574.75, 406)
 shape = SubResource("RectangleShape2D_56377")
 
 [node name="SwimmingWater" type="Area2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water"]
-collision_layer = 2
+collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
-position = Vector2(576.75, 402.25)
+position = Vector2(576.75, 407)
 shape = SubResource("RectangleShape2D_ukx40")
 
 [node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
@@ -160,3 +160,8 @@ color = Color(0.489899, 0.647625, 0.999723, 0.333333)
 [node name="SwimmingPlayer" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("2_xoh7a")]
 position = Vector2(572, 367)
 collision_layer = 2
+
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_entered"]
+[connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_exited"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/SwimmingPlayer" method="_on_water_area_body_exited"]

@@ -9,22 +9,32 @@ extends CharacterBody2D
 @onready var sprite = $Sprite2D
 
 var in_water: bool = true
+@export var water_state_cooldown = 0.01 # in seconds
+var water_state_timer = 0.0
 
 func _on_water_area_body_entered(body):
-	if body == self:
+	if body == self and water_state_timer <= 0.0:
 		in_water = true
+		water_state_timer = water_state_cooldown
+		print("Entered water")
 
 func _on_water_area_body_exited(body):
-	if body == self:
+	if body == self and water_state_timer <= 0.0:
 		in_water = false
+		water_state_timer = water_state_cooldown
+		print("Exited water")
+
+func _process(delta):
+	if water_state_timer > 0.0:
+		water_state_timer -= delta
 
 func ground_movement(delta):
 	var input_direction = Input.get_axis("FishLeft", "FishRight")
 	velocity.x = lerp(velocity.x, input_direction * max_velocity, 0.1)
 
 	velocity.y += gravity * delta
-	if input_direction.x != 0:
-		sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x) * -1
+	if input_direction != 0:
+		sprite.scale.x = abs(sprite.scale.x) * sign(input_direction) * -1
 
 	if is_on_floor() and Input.is_action_just_pressed("FishUp"):
 		velocity.y = -jump_force
