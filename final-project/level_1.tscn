@@ -1,42 +1,56 @@
-[gd_scene load_steps=7 format=3 uid="uid://dn3tee0m4ll02"]
+[gd_scene load_steps=9 format=3 uid="uid://dn3tee0m4ll02"]
 
+[ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_7wd12"]
 [ext_resource type="Texture2D" uid="uid://bpuh6cnmsoum" path="res://boat.jpg" id="2_a56w0"]
+[ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="3_hsc0q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b584v"]
-size = Vector2(1172, 141)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa54m"]
+size = Vector2(1058.17, 144.31)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3urd"]
+size = Vector2(1419, 219)
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5nkny"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f6hjj"]
 size = Vector2(1176, 172)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ljotw"]
-size = Vector2(1176, 170)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ky3dc"]
 size = Vector2(32.8947, 22.7193)
 
 [node name="Level1" type="Node2D"]
 
-[node name="sky" type="Area2D" parent="."]
-position = Vector2(-4, -222)
+[node name="ocean" type="Area2D" parent="."]
+position = Vector2(-1, 218)
+scale = Vector2(1.32708, 1.27317)
 metadata/_edit_group_ = true
 
-[node name="Sky" type="ColorRect" parent="sky"]
-offset_left = 3.0
-offset_top = 186.0
-offset_right = 1156.0
-offset_bottom = 552.0
-scale = Vector2(1, 0.48)
-color = Color(0.627407, 0.902599, 0.982879, 1)
-metadata/_edit_use_anchors_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ocean"]
+position = Vector2(529.634, 73.9366)
+shape = SubResource("RectangleShape2D_pa54m")
+
+[node name="ColorRect" type="ColorRect" parent="ocean"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(26.5339, 3.92323)
+color = Color(0.345279, 0.541464, 0.890752, 1)
+
+[node name="sky" type="Area2D" parent="."]
+metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sky"]
-position = Vector2(576, 291.5)
-shape = SubResource("RectangleShape2D_b584v")
+position = Vector2(705, 109)
+shape = SubResource("RectangleShape2D_v3urd")
+
+[node name="ColorRect2" type="ColorRect" parent="sky"]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(35.2359, 5.52396)
+color = Color(0.542981, 0.822036, 1, 1)
 
 [node name="Pelican_Collsion" type="StaticBody2D" parent="."]
-position = Vector2(-3, 148)
+position = Vector2(9, 229)
+scale = Vector2(1.19544, 1.06985)
 physics_material_override = SubResource("PhysicsMaterial_5nkny")
 metadata/_edit_group_ = true
 
@@ -46,37 +60,24 @@ visibility_layer = 2
 position = Vector2(578, 78)
 shape = SubResource("RectangleShape2D_f6hjj")
 
-[node name="ocean" type="Area2D" parent="."]
-position = Vector2(-4, -225)
+[node name="boat" type="StaticBody2D" parent="."]
+position = Vector2(306, 150)
+scale = Vector2(4.67879, 5.5214)
 metadata/_edit_group_ = true
 
-[node name="Ocean" type="ColorRect" parent="ocean"]
-offset_left = -2.0
-offset_top = 365.0
-offset_right = 1154.0
-offset_bottom = 650.0
-scale = Vector2(1.01048, 0.594432)
-color = Color(0, 0.521605, 0.906661, 1)
-metadata/_edit_use_anchors_ = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ocean"]
-position = Vector2(578, 450)
-shape = SubResource("RectangleShape2D_ljotw")
-debug_color = Color(0.706808, 0.408012, 0.700345, 0.42)
-
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2(176, 106)
-scale = Vector2(2.28, 2.28)
-metadata/_edit_group_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+[node name="Sprite2D" type="Sprite2D" parent="boat"]
 position = Vector2(3.8147e-06, 3.07018)
 scale = Vector2(0.0570652, 0.0523256)
 texture = ExtResource("2_a56w0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boat"]
 position = Vector2(0.219303, 2.23685)
 shape = SubResource("RectangleShape2D_ky3dc")
 
-[connection signal="area_entered" from="sky" to="." method="_on_sky_area_entered"]
-[connection signal="area_entered" from="ocean" to="." method="_on_ocean_area_entered"]
+[node name="pelican" parent="." instance=ExtResource("2_7wd12")]
+position = Vector2(59, 67)
+scale = Vector2(0.711341, 0.773718)
+
+[node name="pufferfish" parent="." instance=ExtResource("3_hsc0q")]
+position = Vector2(44, 267)
+scale = Vector2(-0.996802, 0.886338)
