@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bab6pnm5d3icy"]
+[gd_scene load_steps=27 format=3 uid="uid://bab6pnm5d3icy"]
 
 [ext_resource type="Texture2D" uid="uid://b26fabo05dqoc" path="res://pufferfish/Untitled_Artwork (7).png" id="1_44b8x"]
 [ext_resource type="Script" path="res://SwimmingPlayer.gd" id="1_gly67"]
@@ -21,6 +21,9 @@
 [ext_resource type="Texture2D" uid="uid://2oo3uxi05ssk" path="res://pufferfish/puffing/puffingup_pufferfish_5.png" id="12_8l7t0"]
 [ext_resource type="Texture2D" uid="uid://caamr7bexpopy" path="res://pufferfish/puffing/puffingup_pufferfish_6.png" id="13_0orno"]
 [ext_resource type="Texture2D" uid="uid://dwynivj4ma8gr" path="res://pufferfish/puffing/puffingup_pufferfish_7.png" id="14_hef6d"]
+[ext_resource type="Texture2D" uid="uid://cbpautkyq3gah" path="res://loadbar_ui/under_loadbar.png" id="22_f8gab"]
+[ext_resource type="Texture2D" uid="uid://bxm7vqffbt4yq" path="res://loadbar_ui/over_loadbar.png" id="23_bvm06"]
+[ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="24_gd5qt"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8o4g"]
 animations = [{
@@ -77,7 +80,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("14_hef6d")
 }],
-"loop": true,
+"loop": false,
 "name": &"puffing_up",
 "speed": 5.0
 }, {
@@ -116,10 +119,39 @@ script = ExtResource("1_gly67")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.05, 0.05)
 sprite_frames = SubResource("SpriteFrames_k8o4g")
-animation = &"puffed"
-frame_progress = 0.227559
+animation = &"puffing_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(3, -1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxfpu")
+
+[node name="loadBar" type="TextureProgressBar" parent="."]
+offset_left = -42.0
+offset_top = -43.0
+offset_right = 1723.0
+offset_bottom = 278.0
+scale = Vector2(0.05, 0.05)
+max_value = 10.0
+fill_mode = 1
+texture_under = ExtResource("23_bvm06")
+texture_progress = ExtResource("22_f8gab")
+
+[node name="countdown" type="Label" parent="loadBar"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.317
+anchor_top = -0.81
+anchor_right = 0.68
+anchor_bottom = -0.062
+offset_left = -179.822
+offset_top = -159.99
+offset_right = 209.483
+offset_bottom = -4.09794
+theme_override_fonts/font = ExtResource("24_gd5qt")
+theme_override_font_sizes/font_size = 500
+text = "1 2 3"
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

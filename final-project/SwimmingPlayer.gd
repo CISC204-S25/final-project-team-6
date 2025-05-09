@@ -18,6 +18,8 @@ var out_of_water_timer = 0.0
 
 var pickedup: bool = false
 
+var countdownText = 5
+
 func pickup():
 	pickedup = true
 
@@ -25,6 +27,7 @@ func letgo():
 	pickedup = false
 
 func _on_water_area_body_entered(body):
+	$loadBar.hide()
 	if body == self and water_state_timer <= 0.0:
 		in_water = true
 		water_state_timer = water_state_cooldown
@@ -34,11 +37,20 @@ func _on_water_area_body_entered(body):
 		print("Entered water")
 
 func _on_water_area_body_exited(body):
+	$AnimatedSprite2D.play("puffing_up")
+	$loadBar/countdown.text = "10"
+	$loadBar.show()
 	if body == self and water_state_timer <= 0.0:
 		in_water = false
 		water_state_timer = water_state_cooldown
 		last_water_position = global_position # Save current position
 		print("Exited water")
+		
+		
+
+func _ready() -> void:
+	$loadBar.value = out_of_water_duration
+	$loadBar.hide()
 
 func _process(delta):
 	if water_state_timer > 0.0:
@@ -46,7 +58,8 @@ func _process(delta):
 	
 	if not in_water and not pickedup:
 		out_of_water_timer += delta
-		
+		$loadBar.value = out_of_water_timer
+		$loadBar/countdown.text = str(out_of_water_duration - round(out_of_water_timer))
 		# Flash red if timer is near end (last 1 second)
 		if out_of_water_duration - out_of_water_timer <= 3.0:
 			# Flashing effect using sine wave
@@ -63,11 +76,9 @@ func _process(delta):
 		out_of_water_timer = 0.0
 
 func ground_movement(delta):
-	$AnimatedSprite2D.play("puffing_up")
-	$AnimatedSprite2D.play("puffed")
 	var input_direction = Input.get_axis("FishLeft", "FishRight")
 	velocity.x = lerp(velocity.x, input_direction * max_velocity, 0.1)
-
+	
 	velocity.y += gravity * delta
 	if input_direction != 0:
 		sprite.scale.x = abs(sprite.scale.x) * sign(input_direction) * -1
@@ -116,3 +127,11 @@ func push_objects():
 			collider.apply_central_impulse(collision.get_normal() * -1 * push_force)
 		elif collider is StaticBody2D:
 			velocity = Vector2.ZERO
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	print("finsihed Animation")
+	if($AnimatedSprite2D.animation == "puffing_up"):
+		$AnimatedSprite2D.play(("puffed"))
+	else:
+		$AnimatedSprite2D.stop()
