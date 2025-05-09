@@ -1,24 +1,27 @@
-[gd_scene load_steps=2 format=3 uid="uid://lml4my8miwx2"]
+[gd_scene load_steps=3 format=3 uid="uid://lml4my8miwx2"]
 
 [ext_resource type="Texture2D" uid="uid://q1xeinfb4a28" path="res://Textbox.png" id="1_j1j1x"]
+[ext_resource type="Script" path="res://intro_story.gd" id="2_xs5l8"]
 
 [node name="Textbox" type="Sprite2D"]
 position = Vector2(576, 334)
 scale = Vector2(0.332286, 0.27405)
 texture = ExtResource("1_j1j1x")
+script = ExtResource("2_xs5l8")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
 [node name="Label" type="Label" parent="Sprite2D"]
 anchors_preset = -1
-anchor_left = -1353.97
-anchor_top = -562.399
-anchor_right = 1303.03
-anchor_bottom = 539.643
-offset_left = -9.03296
-offset_top = -6.60095
-offset_right = 35.974
-offset_bottom = 29.357
+anchor_left = -1366.29
+anchor_top = -569.239
+anchor_right = 1326.71
+anchor_bottom = 572.761
+offset_left = 3.29407
+offset_top = 3.23901
+offset_right = 18.2939
+offset_bottom = -14.761
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "(Press space to read)"
+autowrap_mode = 2
