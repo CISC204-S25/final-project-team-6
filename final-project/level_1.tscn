@@ -1,88 +1,166 @@
-[gd_scene load_steps=9 format=3 uid="uid://dn3tee0m4ll02"]
+[gd_scene load_steps=8 format=3 uid="uid://dn3tee0m4ll02"]
 
+[ext_resource type="Script" path="res://level_1.gd" id="1_imo6b"]
 [ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_7wd12"]
-[ext_resource type="Texture2D" uid="uid://bpuh6cnmsoum" path="res://boat.jpg" id="2_a56w0"]
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="3_hsc0q"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pa54m"]
-size = Vector2(1058.17, 144.31)
+[sub_resource type="BoxMesh" id="BoxMesh_g5bo0"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_v3urd"]
-size = Vector2(1419, 219)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x0bpg"]
+size = Vector2(1151, 125)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_5nkny"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7uwkh"]
+size = Vector2(1156.5, 280)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_f6hjj"]
-size = Vector2(1176, 172)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ky3dc"]
-size = Vector2(32.8947, 22.7193)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikhos"]
+size = Vector2(1156.5, 282)
 
 [node name="Level1" type="Node2D"]
+script = ExtResource("1_imo6b")
 
-[node name="ocean" type="Area2D" parent="."]
-position = Vector2(-1, 218)
-scale = Vector2(1.32708, 1.27317)
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 1159.0
+offset_bottom = 653.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport1" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+position = Vector2(363, 165)
+
+[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_7wd12")]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Environment" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+
+[node name="Ground" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment"]
+position = Vector2(233, 237)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Ground"]
+position = Vector2(345.5, 356.75)
+scale = Vector2(1151, 108.5)
+mesh = SubResource("BoxMesh_g5bo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Ground"]
+position = Vector2(344.5, 364)
+shape = SubResource("RectangleShape2D_x0bpg")
+
+[node name="Ground2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment"]
+position = Vector2(288, 400)
+rotation = -0.698132
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Ground2"]
+position = Vector2(345.5, 356.75)
+scale = Vector2(1151, 108.5)
+mesh = SubResource("BoxMesh_g5bo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Ground2"]
+position = Vector2(344.5, 364)
+shape = SubResource("RectangleShape2D_x0bpg")
+
+[node name="Water" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment"]
+
+[node name="FlyingWater" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water"]
 collision_layer = 4
 collision_mask = 4
-metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ocean"]
-position = Vector2(529.634, 73.9366)
-shape = SubResource("RectangleShape2D_pa54m")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/FlyingWater"]
+position = Vector2(574.75, 406)
+shape = SubResource("RectangleShape2D_7uwkh")
 
-[node name="ColorRect" type="ColorRect" parent="ocean"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(26.5339, 3.92323)
-color = Color(0.345098, 0.541176, 0.890196, 0.643137)
+[node name="SwimmingWater" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water"]
+collision_layer = 2
+collision_mask = 2
 
-[node name="sky" type="Area2D" parent="."]
-metadata/_edit_group_ = true
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater"]
+position = Vector2(576.75, 402.25)
+shape = SubResource("RectangleShape2D_ikhos")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="sky"]
-position = Vector2(705, 109)
-shape = SubResource("RectangleShape2D_v3urd")
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer/SubViewport1/Environment/Water/SwimmingWater"]
+offset_left = 2.0
+offset_top = 267.0
+offset_right = 1154.0
+offset_bottom = 542.0
+color = Color(0.489899, 0.647625, 0.999723, 0.333333)
 
-[node name="ColorRect2" type="ColorRect" parent="sky"]
-offset_right = 40.0
-offset_bottom = 40.0
-scale = Vector2(35.2359, 5.52396)
-color = Color(0.542981, 0.822036, 1, 1)
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
 
-[node name="Pelican_Collsion" type="StaticBody2D" parent="."]
-position = Vector2(9, 229)
-scale = Vector2(1.19544, 1.06985)
+[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+position = Vector2(572, 367)
+
+[node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("3_hsc0q")]
+position = Vector2(572, 367)
 collision_layer = 3
-collision_mask = 3
-physics_material_override = SubResource("PhysicsMaterial_5nkny")
-metadata/_edit_group_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pelican_Collsion"]
-light_mask = 2
-visibility_layer = 2
-position = Vector2(578, 78)
-shape = SubResource("RectangleShape2D_f6hjj")
+[node name="Environment" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
 
-[node name="boat" type="StaticBody2D" parent="."]
-position = Vector2(306, 150)
-scale = Vector2(4.67879, 5.5214)
-metadata/_edit_group_ = true
+[node name="Ground" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+position = Vector2(233, 237)
 
-[node name="Sprite2D" type="Sprite2D" parent="boat"]
-position = Vector2(3.8147e-06, 3.07018)
-scale = Vector2(0.0570652, 0.0523256)
-texture = ExtResource("2_a56w0")
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground"]
+position = Vector2(345.5, 356.75)
+scale = Vector2(1151, 108.5)
+mesh = SubResource("BoxMesh_g5bo0")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="boat"]
-position = Vector2(0.219303, 2.23685)
-shape = SubResource("RectangleShape2D_ky3dc")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground"]
+position = Vector2(344.5, 364)
+shape = SubResource("RectangleShape2D_x0bpg")
 
-[node name="pelican" parent="." instance=ExtResource("2_7wd12")]
-position = Vector2(59, 67)
-scale = Vector2(0.711341, 0.773718)
+[node name="Ground2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+position = Vector2(288, 400)
+rotation = -0.698132
 
-[node name="pufferfish" parent="." instance=ExtResource("3_hsc0q")]
-position = Vector2(44, 267)
-scale = Vector2(0.923198, 0.886338)
-collision_layer = 3
+[node name="MeshInstance2D" type="MeshInstance2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground2"]
+position = Vector2(345.5, 356.75)
+scale = Vector2(1151, 108.5)
+mesh = SubResource("BoxMesh_g5bo0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Ground2"]
+position = Vector2(344.5, 364)
+shape = SubResource("RectangleShape2D_x0bpg")
+
+[node name="Water" type="Node2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment"]
+
+[node name="FlyingWater" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water"]
+collision_layer = 4
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/FlyingWater"]
+position = Vector2(574.75, 406)
+shape = SubResource("RectangleShape2D_7uwkh")
+
+[node name="SwimmingWater" type="Area2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water"]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
+position = Vector2(576.75, 407)
+shape = SubResource("RectangleShape2D_ikhos")
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater"]
+offset_left = 2.0
+offset_top = 267.0
+offset_right = 1154.0
+offset_bottom = 542.0
+color = Color(0.489899, 0.647625, 0.999723, 0.333333)
+
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_water_area_body_entered"]
+[connection signal="body_exited" from="HBoxContainer/SubViewportContainer2/SubViewport2/Environment/Water/SwimmingWater" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_water_area_body_exited"]
+
+[editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]
