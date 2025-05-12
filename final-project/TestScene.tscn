@@ -16,6 +16,7 @@ size = Vector2(1156.5, 280)
 size = Vector2(1156.5, 282)
 
 [node name="MainScene" type="Node2D"]
+scale = Vector2(5, 5)
 script = ExtResource("1_lminj")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
