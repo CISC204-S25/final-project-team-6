@@ -1,0 +1,78 @@
+[gd_scene load_steps=6 format=3 uid="uid://cb0g3kuyjojvx"]
+
+[ext_resource type="Texture2D" uid="uid://b1ahx68dv7i10" path="res://boat.png" id="1_yq5xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3v8"]
+size = Vector2(2370, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufkib"]
+size = Vector2(2383, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04u62"]
+size = Vector2(2384, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_202l6"]
+size = Vector2(469, 70.5)
+
+[node name="Level" type="Node2D"]
+
+[node name="Sky" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Sky"]
+offset_right = 2347.0
+offset_bottom = 350.0
+color = Color(0.550198, 0.776587, 0.938191, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky"]
+position = Vector2(1175, 168)
+shape = SubResource("RectangleShape2D_uc3v8")
+
+[node name="Ocean" type="Node" parent="."]
+
+[node name="swimming" type="Area2D" parent="Ocean"]
+position = Vector2(-5, 383)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Ocean/swimming"]
+offset_top = -34.0
+offset_right = 2355.0
+offset_bottom = 275.0
+color = Color(0.341176, 0.701961, 0.74902, 0.878431)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/swimming"]
+position = Vector2(1181.5, 119)
+shape = SubResource("RectangleShape2D_ufkib")
+
+[node name="flying" type="StaticBody2D" parent="Ocean"]
+position = Vector2(-10, 369)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/flying"]
+position = Vector2(1191, 133)
+shape = SubResource("RectangleShape2D_04u62")
+
+[node name="sand" type="ColorRect" parent="Ocean"]
+offset_left = -2.0
+offset_top = 585.0
+offset_right = 2354.0
+offset_bottom = 657.0
+color = Color(0.869182, 0.73218, 0.4281, 1)
+
+[node name="boat" type="StaticBody2D" parent="."]
+position = Vector2(445, 276)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boat"]
+position = Vector2(283.5, 20.25)
+shape = SubResource("RectangleShape2D_202l6")
+
+[node name="Sprite2D" type="Sprite2D" parent="boat"]
+position = Vector2(282, -19)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_yq5xo")
