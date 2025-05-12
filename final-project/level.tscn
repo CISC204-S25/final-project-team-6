@@ -1,0 +1,129 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb0g3kuyjojvx"]
+
+[ext_resource type="Script" path="res://level.gd" id="1_yollh"]
+[ext_resource type="Texture2D" uid="uid://b1ahx68dv7i10" path="res://boat.png" id="1_yq5xo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ufkib"]
+size = Vector2(5657, 308)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04u62"]
+size = Vector2(5652, 312)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3v8"]
+size = Vector2(5672, 356)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_202l6"]
+size = Vector2(469, 70.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_prwvn"]
+size = Vector2(5691, 100)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7euh8"]
+size = Vector2(5672, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63hxn"]
+size = Vector2(60, 1043)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m14g1"]
+size = Vector2(81, 861)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_yollh")
+
+[node name="Ocean" type="Node" parent="."]
+
+[node name="swimming" type="Area2D" parent="Ocean"]
+position = Vector2(-5, 383)
+collision_layer = 2
+collision_mask = 2
+metadata/_edit_group_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="Ocean/swimming"]
+offset_left = -932.0
+offset_top = -34.0
+offset_right = 7643.0
+offset_bottom = 664.0
+color = Color(0.341176, 0.701961, 0.74902, 0.733333)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/swimming"]
+position = Vector2(2818.5, 119)
+shape = SubResource("RectangleShape2D_ufkib")
+
+[node name="flying" type="StaticBody2D" parent="Ocean"]
+position = Vector2(-10, 369)
+collision_layer = 4
+collision_mask = 4
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/flying"]
+position = Vector2(2825, 133)
+shape = SubResource("RectangleShape2D_04u62")
+
+[node name="Sky" type="Area2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Sky"]
+offset_left = -943.0
+offset_top = -709.0
+offset_right = 7607.0
+offset_bottom = 350.0
+color = Color(0.550198, 0.776587, 0.938191, 1)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sky"]
+position = Vector2(2826, 168)
+shape = SubResource("RectangleShape2D_uc3v8")
+
+[node name="sand" type="ColorRect" parent="Sky"]
+offset_left = -947.0
+offset_top = 585.0
+offset_right = 7714.0
+offset_bottom = 1053.0
+color = Color(0.861416, 0.732989, 0.466474, 1)
+
+[node name="boat" type="StaticBody2D" parent="."]
+position = Vector2(445, 276)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boat"]
+position = Vector2(283.5, 20.25)
+shape = SubResource("RectangleShape2D_202l6")
+
+[node name="Sprite2D" type="Sprite2D" parent="boat"]
+position = Vector2(282, -19)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("1_yq5xo")
+
+[node name="border_top" type="StaticBody2D" parent="."]
+position = Vector2(-19, -62)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_top"]
+position = Vector2(2835.5, -40)
+shape = SubResource("RectangleShape2D_prwvn")
+
+[node name="border_bottom" type="StaticBody2D" parent="."]
+position = Vector2(-20, 760)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_bottom"]
+position = Vector2(2826, 25.5)
+shape = SubResource("RectangleShape2D_7euh8")
+
+[node name="border_left" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_left"]
+position = Vector2(-40, 387.5)
+shape = SubResource("RectangleShape2D_63hxn")
+
+[node name="border_right" type="StaticBody2D" parent="."]
+position = Vector2(5550, 13)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="border_right"]
+position = Vector2(131.5, 316.5)
+shape = SubResource("RectangleShape2D_m14g1")
+
+[connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
+[connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
