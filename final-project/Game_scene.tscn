@@ -48,4 +48,7 @@ position = Vector2(572, 367)
 position = Vector2(572, 367)
 collision_layer = 3
 
+[connection signal="notSwimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_not_swimming"]
+[connection signal="swimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_swimming"]
+
 [editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]

@@ -1,5 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://cb0g3kuyjojvx"]
+[gd_scene load_steps=11 format=3 uid="uid://cb0g3kuyjojvx"]
 
+[ext_resource type="Script" path="res://level.gd" id="1_yollh"]
 [ext_resource type="Texture2D" uid="uid://b1ahx68dv7i10" path="res://boat.png" id="1_yq5xo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufkib"]
@@ -27,6 +28,7 @@ size = Vector2(60, 1043)
 size = Vector2(81, 861)
 
 [node name="Level" type="Node2D"]
+script = ExtResource("1_yollh")
 
 [node name="Ocean" type="Node" parent="."]
 
@@ -122,3 +124,6 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border_right"]
 position = Vector2(131.5, 316.5)
 shape = SubResource("RectangleShape2D_m14g1")
+
+[connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
+[connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
