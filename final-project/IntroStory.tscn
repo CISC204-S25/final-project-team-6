@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://lml4my8miwx2"]
+
+[ext_resource type="Texture2D" uid="uid://q1xeinfb4a28" path="res://Textbox.png" id="1_j1j1x"]
+[ext_resource type="Script" path="res://intro_story.gd" id="2_xs5l8"]
+
+[node name="Textbox" type="Sprite2D"]
+position = Vector2(576, 334)
+scale = Vector2(0.332286, 0.27405)
+texture = ExtResource("1_j1j1x")
+script = ExtResource("2_xs5l8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="Label" type="Label" parent="Sprite2D"]
+anchors_preset = -1
+anchor_left = -1366.29
+anchor_top = -569.239
+anchor_right = 1326.71
+anchor_bottom = 572.761
+offset_left = 3.29407
+offset_top = 3.23901
+offset_right = 18.2939
+offset_bottom = -14.761
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "(Press space to read)"
+autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.784
+anchor_top = 0.85
+anchor_right = 0.917
+anchor_bottom = 0.941
+offset_left = -1751.0
+offset_top = -1249.0
+offset_right = -1749.5
+offset_bottom = -1242.5
+theme_override_font_sizes/font_size = 70
+text = "Play Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
