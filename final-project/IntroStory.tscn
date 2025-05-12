@@ -25,3 +25,18 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 100
 text = "(Press space to read)"
 autowrap_mode = 2
+
+[node name="Button" type="Button" parent="."]
+anchors_preset = -1
+anchor_left = 0.784
+anchor_top = 0.85
+anchor_right = 0.917
+anchor_bottom = 0.941
+offset_left = -1751.0
+offset_top = -1249.0
+offset_right = -1749.5
+offset_bottom = -1242.5
+theme_override_font_sizes/font_size = 70
+text = "Play Game"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

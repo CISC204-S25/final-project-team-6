@@ -32,3 +32,7 @@ func type_letters():
 		await get_tree().create_timer(0.02).timeout
 		isTyping = true
 	isTyping = false
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.
