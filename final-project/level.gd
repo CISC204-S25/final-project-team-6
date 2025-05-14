@@ -15,9 +15,7 @@ func _process(delta: float) -> void:
 
 func _on_swimming_body_entered(body: Node2D) -> void:
 	swimming.emit();
-	print("entered");
 
 
 func _on_swimming_body_exited(body: Node2D) -> void:
 	notSwimming.emit();
-	print("exited");
