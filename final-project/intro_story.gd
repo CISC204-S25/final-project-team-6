@@ -2,6 +2,7 @@ extends Sprite2D
 var Dialogue 
 var currentString = 0 
 @export var isTyping = false
+@export var ChangeScene:String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Dialogue = ["(Press space to read)", 
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 		
 		if currentString >= Dialogue.size():
 			currentString= 0
+			$Button.show()
 		type_letters()
 	
 		
@@ -35,4 +37,4 @@ func type_letters():
 
 
 func _on_button_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file(ChangeScene)

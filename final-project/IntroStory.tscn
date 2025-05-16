@@ -9,6 +9,7 @@ position = Vector2(576, 334)
 scale = Vector2(0.332286, 0.27405)
 texture = ExtResource("1_j1j1x")
 script = ExtResource("2_xs5l8")
+ChangeScene = "res://TestScene.tscn"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -29,6 +30,7 @@ text = "(Press space to read)"
 autowrap_mode = 2
 
 [node name="Button" type="Button" parent="."]
+visible = false
 anchors_preset = -1
 anchor_left = 0.784
 anchor_top = 0.85
@@ -39,6 +41,6 @@ offset_top = -1249.0
 offset_right = -1749.5
 offset_bottom = -1242.5
 theme_override_font_sizes/font_size = 70
-text = "Play Game"
+text = "Continue"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
