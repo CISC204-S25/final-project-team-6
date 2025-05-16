@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://lml4my8miwx2"]
+[gd_scene load_steps=4 format=3 uid="uid://b17ih7rgjnhhf"]
 
 [ext_resource type="Texture2D" uid="uid://q1xeinfb4a28" path="res://Textbox.png" id="1_j1j1x"]
 [ext_resource type="Script" path="res://intro_story.gd" id="2_xs5l8"]
+[ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="3_a07a5"]
 
 [node name="Textbox" type="Sprite2D"]
 position = Vector2(576, 334)
@@ -22,7 +23,8 @@ offset_top = 3.23901
 offset_right = 18.2939
 offset_bottom = -14.761
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("3_a07a5")
+theme_override_font_sizes/font_size = 150
 text = "(Press space to read)"
 autowrap_mode = 2
 

@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bkit71ldcypvr"]
+
+[ext_resource type="Texture2D" uid="uid://hl03mspivkgq" path="res://decoration/seashell.png" id="1_bsbru"]
+
+[node name="seashell" type="Sprite2D"]
+position = Vector2(-2, -2)
+scale = Vector2(0.136667, 0.13375)
+texture = ExtResource("1_bsbru")

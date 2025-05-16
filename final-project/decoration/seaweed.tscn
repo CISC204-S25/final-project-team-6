@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://ccfwphjtbl3pa"]
+
+[ext_resource type="Texture2D" uid="uid://d26uvwq1cc04x" path="res://decoration/seaweed1.png" id="1_elehw"]
+[ext_resource type="Texture2D" uid="uid://d3kkvuv1uees3" path="res://decoration/seaweed2.png" id="2_lgiup"]
+[ext_resource type="Texture2D" uid="uid://d04akce2pqjv4" path="res://decoration/seaweed3.png" id="3_5tesv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i646l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_elehw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lgiup")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_5tesv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_lgiup")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="seaweed" type="AnimatedSprite2D"]
+position = Vector2(-1, -2.99994)
+scale = Vector2(0.141026, 0.126488)
+sprite_frames = SubResource("SpriteFrames_i646l")

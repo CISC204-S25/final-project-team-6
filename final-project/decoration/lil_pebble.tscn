@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://vxypf6s87isl"]
+
+[ext_resource type="Texture2D" uid="uid://pymfbvaad5ao" path="res://decoration/lilPebble.png" id="1_b7jj1"]
+
+[node name="lilPebble" type="Sprite2D"]
+position = Vector2(-7.62939e-06, -2.99999)
+scale = Vector2(0.154472, 0.138554)
+texture = ExtResource("1_b7jj1")

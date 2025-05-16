@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ejiif31yv3um"]
+
+[ext_resource type="Texture2D" uid="uid://b7jo31kwptyi5" path="res://decoration/clumpsOfRocks.png" id="1_82y2l"]
+
+[node name="ClumpOfRocks" type="Sprite2D"]
+position = Vector2(-1.99998, -6.10352e-05)
+scale = Vector2(0.166107, 0.169118)
+texture = ExtResource("1_82y2l")

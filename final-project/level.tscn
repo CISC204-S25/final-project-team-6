@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://cb0g3kuyjojvx"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_yollh"]
-[ext_resource type="Texture2D" uid="uid://b1ahx68dv7i10" path="res://boat.png" id="1_yq5xo"]
+[ext_resource type="Texture2D" uid="uid://dwgu4k6cex4eg" path="res://boat.png" id="1_yq5xo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufkib"]
 size = Vector2(5657, 308)

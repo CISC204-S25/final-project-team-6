@@ -1,0 +1,130 @@
+[gd_scene load_steps=17 format=3 uid="uid://cnrtai4caa6mv"]
+
+[ext_resource type="Script" path="res://startGame/start_game.gd" id="1_r32ji"]
+[ext_resource type="Texture2D" uid="uid://dmwd700n3vd74" path="res://startGame/art/Untitled_Artwork (17).png" id="1_xxgxl"]
+[ext_resource type="Texture2D" uid="uid://dc4dgb6i4sffw" path="res://startGame/art/Untitled_Artwork (18).png" id="2_dciao"]
+[ext_resource type="Texture2D" uid="uid://fo0y2lx8lk4" path="res://startGame/art/Untitled_Artwork (19).png" id="3_qo2kr"]
+[ext_resource type="Texture2D" uid="uid://bq26dmc1ow1ho" path="res://startGame/art/Untitled_Artwork (20).png" id="4_5umad"]
+[ext_resource type="Texture2D" uid="uid://blj6ngvwgaqyb" path="res://startGame/art/Untitled_Artwork (21).png" id="5_18vmc"]
+[ext_resource type="Texture2D" uid="uid://cuuii012k56if" path="res://startGame/art/Untitled_Artwork (22).png" id="6_ui0qk"]
+[ext_resource type="Texture2D" uid="uid://b50rte0nnpjdg" path="res://startGame/art/Untitled_Artwork (23).png" id="7_ktli5"]
+[ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="8_y3chv"]
+[ext_resource type="Texture2D" uid="uid://bvfkwbgnmbi2x" path="res://startGame/art/button UI.png" id="9_v2pq2"]
+[ext_resource type="PackedScene" uid="uid://ccfwphjtbl3pa" path="res://decoration/seaweed.tscn" id="11_nri7d"]
+[ext_resource type="PackedScene" uid="uid://ekshy4tsxoon" path="res://decoration/cloud.tscn" id="12_beaq7"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_himvi"]
+animations = [{
+"frames": [{
+"duration": 20.0,
+"texture": ExtResource("1_xxgxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_dciao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_qo2kr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_5umad")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_18vmc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ui0qk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ktli5")
+}],
+"loop": true,
+"name": &"start",
+"speed": 3.0
+}]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8fyor"]
+texture = ExtResource("9_v2pq2")
+region_rect = Rect2(43.376, 156.786, 196.182, 104.279)
+modulate_color = Color(0.544974, 0.544974, 0.544974, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bbr3e"]
+texture = ExtResource("9_v2pq2")
+region_rect = Rect2(239.748, 158.889, 195.225, 104.097)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_7cyim"]
+texture = ExtResource("9_v2pq2")
+region_rect = Rect2(42.5699, 151.396, 199.081, 113.56)
+
+[node name="StartGame" type="CanvasLayer"]
+script = ExtResource("1_r32ji")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(549.25, 338)
+scale = Vector2(0.453099, 0.432854)
+sprite_frames = SubResource("SpriteFrames_himvi")
+animation = &"start"
+frame_progress = 0.0902168
+
+[node name="Button" type="Button" parent="AnimatedSprite2D"]
+anchors_preset = -1
+anchor_left = 0.317
+anchor_top = 0.403
+anchor_right = 0.693
+anchor_bottom = 0.594
+offset_left = -1210.75
+offset_top = -833.921
+offset_right = -1210.67
+offset_bottom = -834.509
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.816154, 0.828291, 0.837147, 1)
+theme_override_fonts/font = ExtResource("8_y3chv")
+theme_override_font_sizes/font_size = 200
+theme_override_styles/hover = SubResource("StyleBoxTexture_8fyor")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_bbr3e")
+theme_override_styles/normal = SubResource("StyleBoxTexture_7cyim")
+icon_alignment = 1
+vertical_icon_alignment = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="startLabel" type="Label" parent="AnimatedSprite2D/Button"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.243
+anchor_top = 0.131
+anchor_right = 0.715
+anchor_bottom = 0.631
+offset_left = 15.0214
+offset_top = -0.0735512
+offset_right = 15.5014
+offset_bottom = -0.0735626
+theme_override_fonts/font = ExtResource("8_y3chv")
+theme_override_font_sizes/font_size = 200
+text = "Start"
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="AnimatedSprite2D"]
+offset_left = -631.208
+offset_top = -390.432
+offset_right = 638.792
+offset_bottom = -191.432
+theme_override_fonts/font = ExtResource("8_y3chv")
+theme_override_font_sizes/font_size = 250
+text = "Peli & Puffy"
+metadata/_edit_use_anchors_ = true
+
+[node name="seaweed" parent="." instance=ExtResource("11_nri7d")]
+position = Vector2(693, 638)
+
+[node name="seaweed2" parent="." instance=ExtResource("11_nri7d")]
+position = Vector2(270.25, 610)
+scale = Vector2(0.202704, 0.268981)
+
+[node name="cloud" parent="." instance=ExtResource("12_beaq7")]
+position = Vector2(477.25, 34)
+
+[node name="cloud2" parent="." instance=ExtResource("12_beaq7")]
+position = Vector2(990, 78)
+scale = Vector2(0.45874, 0.347826)
+
+[connection signal="pressed" from="AnimatedSprite2D/Button" to="." method="_on_button_pressed"]
