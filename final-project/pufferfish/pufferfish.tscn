@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=3 uid="uid://bab6pnm5d3icy"]
 
 [ext_resource type="Texture2D" uid="uid://b26fabo05dqoc" path="res://pufferfish/Untitled_Artwork (7).png" id="1_44b8x"]
-[ext_resource type="Script" path="res://SwimmingPlayer.gd" id="1_gly67"]
+[ext_resource type="Script" path="res://pufferfish/SwimmingPlayer.gd" id="1_gly67"]
 [ext_resource type="Texture2D" uid="uid://brnh437tlpu3n" path="res://pufferfish/swimming/fish_1.png" id="2_3ij2a"]
 [ext_resource type="Texture2D" uid="uid://dslrajjudh2up" path="res://pufferfish/puffed/puffed_pufferfish_1.png" id="2_28q83"]
 [ext_resource type="Texture2D" uid="uid://c2tqr8nsrrr5j" path="res://pufferfish/swimming/fish_2.png" id="3_4tv78"]

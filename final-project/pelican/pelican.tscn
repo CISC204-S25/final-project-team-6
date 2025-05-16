@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b5xi16he7ttrj" path="res://pelican/walking/pelican_6.png" id="7_1tl8w"]
 [ext_resource type="Texture2D" uid="uid://c3442gv8qtps7" path="res://pelican/walking/pelican_7.png" id="8_wiaar"]
 [ext_resource type="Texture2D" uid="uid://cprnen2h7sac7" path="res://pelican/walking/pelican_8.png" id="9_s36o3"]
-[ext_resource type="Script" path="res://FlyingPlayer.gd" id="15_152xx"]
+[ext_resource type="Script" path="res://pelican/FlyingPlayer.gd" id="15_152xx"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ms3ca"]
 animations = [{

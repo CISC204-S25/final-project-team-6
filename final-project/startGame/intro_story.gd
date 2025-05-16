@@ -5,6 +5,7 @@ var currentString = 0
 @export var ChangeScene:String
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	get_window().size = Vector2i(1000, 600)
 	Dialogue = ["(Press space to read)", 
 	"There was once a summer so hot, even the fish begged for cold water.",
 	"A pelican and a fish met up with each other just to complain.",
@@ -37,4 +38,4 @@ func type_letters():
 
 
 func _on_button_pressed() -> void:
-	get_tree().change_scene_to_file(ChangeScene)
+	get_tree().change_scene_to_file("res://Game_scene.tscn")

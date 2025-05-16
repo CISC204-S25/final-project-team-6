@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dad3fpc0fy074"]
 
-[ext_resource type="Script" path="res://test_scene.gd" id="1_lminj"]
+[ext_resource type="Script" path="res://tests/test_scene.gd" id="1_lminj"]
 [ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_s8gop"]
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="3_paj4r"]
 

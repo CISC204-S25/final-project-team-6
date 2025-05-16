@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://q1xeinfb4a28"
-path="res://.godot/imported/Textbox.png-83be840657eba439c10df580e2b20a3e.ctex"
+uid="uid://m6ang1q4nqnk"
+path="res://.godot/imported/Tube.png-2f3e4b34f1c90b82a3843cf62ab98640.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Textbox.png"
-dest_files=["res://.godot/imported/Textbox.png-83be840657eba439c10df580e2b20a3e.ctex"]
+source_file="res://pufferfish/Tube.png"
+dest_files=["res://.godot/imported/Tube.png-2f3e4b34f1c90b82a3843cf62ab98640.ctex"]
 
 [params]
 
