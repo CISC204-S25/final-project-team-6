@@ -1,7 +1,12 @@
-[gd_scene load_steps=13 format=3 uid="uid://cb0g3kuyjojvx"]
+[gd_scene load_steps=17 format=3 uid="uid://cb0g3kuyjojvx"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_yollh"]
 [ext_resource type="Texture2D" uid="uid://dwgu4k6cex4eg" path="res://boat.png" id="1_yq5xo"]
+[ext_resource type="PackedScene" uid="uid://ccfwphjtbl3pa" path="res://decoration/seaweed.tscn" id="3_8ics8"]
+[ext_resource type="PackedScene" uid="uid://ekshy4tsxoon" path="res://decoration/cloud.tscn" id="4_75cmv"]
+[ext_resource type="PackedScene" uid="uid://ejiif31yv3um" path="res://decoration/clump_of_rocks.tscn" id="5_qewan"]
+[ext_resource type="PackedScene" uid="uid://bkit71ldcypvr" path="res://decoration/seashell.tscn" id="6_wp2dm"]
+[ext_resource type="PackedScene" uid="uid://vxypf6s87isl" path="res://decoration/lil_pebble.tscn" id="7_256s3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ufkib"]
 size = Vector2(5657, 410)
@@ -10,7 +15,7 @@ size = Vector2(5657, 410)
 size = Vector2(5652, 312)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3v8"]
-size = Vector2(5672, 356)
+size = Vector2(5683, 423)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_202l6"]
 size = Vector2(572, 87)
@@ -28,9 +33,6 @@ size = Vector2(60, 1043)
 size = Vector2(81, 861)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_v8h8h"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_51bkt"]
-size = Vector2(142, 437)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_yollh")
@@ -76,7 +78,7 @@ color = Color(0.550198, 0.776587, 0.938191, 1)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sky"]
-position = Vector2(2826, 168)
+position = Vector2(2820.5, 134.5)
 shape = SubResource("RectangleShape2D_uc3v8")
 
 [node name="sand" type="ColorRect" parent="Sky"]
@@ -139,17 +141,82 @@ shape = SubResource("CircleShape2D_v8h8h")
 
 [node name="Sprite2D" type="Sprite2D" parent="collectable"]
 
-[node name="Seaweed" type="StaticBody2D" parent="."]
-position = Vector2(1484, 718)
-collision_layer = 5
-collision_mask = 5
-metadata/_edit_group_ = true
+[node name="seaweed" parent="." instance=ExtResource("3_8ics8")]
+position = Vector2(1260, 615)
+scale = Vector2(0.160257, 0.195684)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Seaweed"]
-position = Vector2(61, -177.5)
-shape = SubResource("RectangleShape2D_51bkt")
+[node name="seaweed3" parent="." instance=ExtResource("3_8ics8")]
+position = Vector2(1291, 633)
+scale = Vector2(0.105546, 0.117875)
 
-[node name="Sprite2D" type="Sprite2D" parent="Seaweed"]
+[node name="seaweed4" parent="." instance=ExtResource("3_8ics8")]
+position = Vector2(88, 610)
+scale = Vector2(0.140579, 0.181988)
+
+[node name="seaweed2" parent="." instance=ExtResource("3_8ics8")]
+position = Vector2(52, 596)
+scale = Vector2(0.201923, 0.247768)
+
+[node name="cloud6" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(4787, 141)
+scale = Vector2(0.41629, 0.241433)
+
+[node name="cloud8" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(5512, 72)
+scale = Vector2(0.415865, 0.368424)
+
+[node name="cloud7" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(4307, 62)
+scale = Vector2(0.394367, 0.241433)
+
+[node name="cloud5" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(3629, 93)
+scale = Vector2(0.20115, 0.289681)
+
+[node name="cloud4" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(2936, 143)
+scale = Vector2(0.388438, 0.347571)
+
+[node name="cloud3" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(2111, 34)
+scale = Vector2(0.750108, 0.41703)
+
+[node name="cloud2" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(1062, 63)
+scale = Vector2(0.336247, 0.325894)
+
+[node name="cloud" parent="." instance=ExtResource("4_75cmv")]
+position = Vector2(53.75, 14)
+scale = Vector2(0.305908, 0.273292)
+
+[node name="ClumpOfRocks4" parent="." instance=ExtResource("5_qewan")]
+position = Vector2(5496, 553)
+scale = Vector2(0.266507, 0.449543)
+
+[node name="ClumpOfRocks3" parent="." instance=ExtResource("5_qewan")]
+position = Vector2(3239, 587)
+scale = Vector2(0.162732, 0.187286)
+
+[node name="ClumpOfRocks2" parent="." instance=ExtResource("5_qewan")]
+position = Vector2(2295, 643)
+scale = Vector2(0.0993665, 0.078026)
+
+[node name="ClumpOfRocks" parent="." instance=ExtResource("5_qewan")]
+position = Vector2(1411, 624)
+
+[node name="seashell2" parent="." instance=ExtResource("6_wp2dm")]
+position = Vector2(1196, 602)
+scale = Vector2(0.0394444, 0.0385819)
+
+[node name="seashell" parent="." instance=ExtResource("6_wp2dm")]
+position = Vector2(241, 612)
+
+[node name="lilPebble" parent="." instance=ExtResource("7_256s3")]
+position = Vector2(519, 608)
+
+[node name="lilPebble" parent="lilPebble" instance=ExtResource("7_256s3")]
+position = Vector2(8966.03, -86.6089)
+scale = Vector2(0.555418, 0.775402)
 
 [connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
 [connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
