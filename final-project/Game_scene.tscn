@@ -23,10 +23,10 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
+[node name="Level" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("3_2shka")]
+
 [node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
 position = Vector2(363, 165)
-
-[node name="Level" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("3_2shka")]
 
 [node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_n44ml")]
 collision_layer = 5
@@ -41,12 +41,12 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
-position = Vector2(572, 367)
-
 [node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("3_lelkb")]
 position = Vector2(572, 367)
 collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+position = Vector2(572, 367)
 
 [connection signal="notSwimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_not_swimming"]
 [connection signal="swimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_swimming"]
