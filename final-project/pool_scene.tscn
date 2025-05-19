@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://dehaftat1dk54"]
-
-[ext_resource type="Texture2D" uid="uid://ddpbvgqd36uec" path="res://Untitled_Artwork (25).png" id="1_3f36q"]
-
-[node name="poolScene" type="Sprite2D"]
-position = Vector2(788, 517)
-scale = Vector2(0.650413, 0.621403)
-texture = ExtResource("1_3f36q")

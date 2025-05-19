@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c78mcnowa58pg"]
+
+[ext_resource type="Script" path="res://bathroom/bathroom.gd" id="1_6ydqp"]
+[ext_resource type="Texture2D" uid="uid://ddpbvgqd36uec" path="res://bathroom/Untitled_Artwork (25).png" id="2_4m42d"]
+
+[node name="Bathroom" type="Node2D"]
+script = ExtResource("1_6ydqp")
+
+[node name="pool_bathroom" type="Sprite2D" parent="."]
+position = Vector2(788, 517)
+scale = Vector2(0.650413, 0.621403)
+texture = ExtResource("2_4m42d")
