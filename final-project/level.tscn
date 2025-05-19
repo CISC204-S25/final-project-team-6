@@ -57,8 +57,8 @@ color = Color(0.550198, 0.776587, 0.938191, 1)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sky"]
-visible = false
-position = Vector2(2826, 168)
+position = Vector2(2818, -48)
+scale = Vector2(1.02895, 2.24069)
 shape = SubResource("RectangleShape2D_uc3v8")
 
 [node name="ClumpOfRocks" parent="Sky" instance=ExtResource("3_mws6n")]
@@ -167,7 +167,6 @@ offset_bottom = 664.0
 color = Color(0.341176, 0.701961, 0.74902, 0.733333)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/swimming"]
-visible = false
 position = Vector2(2818.5, 173)
 shape = SubResource("RectangleShape2D_ufkib")
 
@@ -178,7 +177,6 @@ collision_mask = 4
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ocean/flying"]
-visible = false
 position = Vector2(2825, 133)
 shape = SubResource("RectangleShape2D_04u62")
 
