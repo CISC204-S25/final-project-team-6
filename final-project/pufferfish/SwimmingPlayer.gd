@@ -32,10 +32,6 @@ func letgo():
 
 func _on_water_area_body_entered(body):
 	$loadBar.hide()
-	$SplashParticlesEnter.global_position = global_position
-	$SplashParticlesEnter.restart()
-	$SplashParticlesEnter.emitting = true
-	$WaterSoundPlayer.play()
 	if body == self and water_state_timer <= 0.0:
 		in_water = true
 		water_state_timer = water_state_cooldown
@@ -58,11 +54,6 @@ func _on_water_area_body_exited(body):
 		in_water = false
 		water_state_timer = water_state_cooldown
 		last_water_position = global_position # Save current position
-		$SplashParticlesExit.global_position = global_position
-		$SplashParticlesExit.restart()
-		$SplashParticlesExit.emitting = true
-		$WaterSoundPlayer.play()
-		print("Sound playing: ", $WaterSoundPlayer.playing)
 		print("Exited water")
 		
 #For game level

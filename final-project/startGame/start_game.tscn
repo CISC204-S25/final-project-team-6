@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cnrtai4caa6mv"]
+[gd_scene load_steps=17 format=3 uid="uid://cnrtai4caa6mv"]
 
 [ext_resource type="Script" path="res://startGame/start_game.gd" id="1_r32ji"]
 [ext_resource type="Texture2D" uid="uid://dmwd700n3vd74" path="res://startGame/art/Untitled_Artwork (17).png" id="1_xxgxl"]
@@ -12,7 +12,6 @@
 [ext_resource type="Texture2D" uid="uid://bvfkwbgnmbi2x" path="res://startGame/art/button UI.png" id="9_v2pq2"]
 [ext_resource type="PackedScene" uid="uid://ccfwphjtbl3pa" path="res://decoration/seaweed.tscn" id="11_nri7d"]
 [ext_resource type="PackedScene" uid="uid://ekshy4tsxoon" path="res://decoration/cloud.tscn" id="12_beaq7"]
-[ext_resource type="AudioStream" uid="uid://b2sn0tjp2wig0" path="res://Audio/Intro Background Sounds.mp3" id="13_htc8a"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_himvi"]
 animations = [{
@@ -127,10 +126,5 @@ position = Vector2(477.25, 34)
 [node name="cloud2" parent="." instance=ExtResource("12_beaq7")]
 position = Vector2(990, 78)
 scale = Vector2(0.45874, 0.347826)
-
-[node name="BackgroundSounds" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("13_htc8a")
-autoplay = true
-parameters/looping = false
 
 [connection signal="pressed" from="AnimatedSprite2D/Button" to="." method="_on_button_pressed"]
