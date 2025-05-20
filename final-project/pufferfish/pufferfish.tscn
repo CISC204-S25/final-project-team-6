@@ -189,4 +189,5 @@ explosiveness = 1.0
 [node name="WaterSoundPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("25_c7uvs")
 
+[connection signal="puffed_changed" from="." to="." method="_on_puffed_changed"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
