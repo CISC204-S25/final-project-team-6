@@ -23,22 +23,21 @@ func _on_swimming_body_exited(body: Node2D) -> void:
 	notSwimming.emit();
 
 
-
-func _on_be_puffed_area_area_entered(area: Area2D) -> void:
+func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 	if(PufferFish.puffed == true):
 		$background2.show()
 		$lampStaticBody.hide()
 
 
-func _on_pick_up_item_area_entered(area: Area2D) -> void:
+func _on_pick_up_item_body_entered(body: Node2D) -> void:
 	$PickUpItem/Item.hide()
 	$InvisbleStaticBody.hide()
 
 
-func _on_exit_area_area_entered(area: Area2D) -> void:
+func _on_exit_area_body_entered(body: Node2D) -> void:
 	#leads back to the vent room
 	pass # Replace with function body.
 
 
-func _on_punch_bowl_area_area_entered(area: Area2D) -> void:
+func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swimming.emit();

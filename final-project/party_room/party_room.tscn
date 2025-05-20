@@ -66,6 +66,7 @@ radius = 94.0053
 size = Vector2(94, 160)
 
 [node name="party_room" type="Node2D"]
+position = Vector2(18, -94)
 script = ExtResource("1_078a3")
 
 [node name="background" type="Sprite2D" parent="."]
@@ -203,6 +204,9 @@ position = Vector2(1747, 272)
 shape = SubResource("RectangleShape2D_c4b66")
 
 [connection signal="area_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
+[connection signal="body_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
 [connection signal="area_entered" from="exitArea" to="." method="_on_exit_area_area_entered"]
+[connection signal="body_entered" from="exitArea" to="." method="_on_exit_area_body_entered"]
 [connection signal="area_entered" from="PickUpItem" to="." method="_on_pick_up_item_area_entered"]
+[connection signal="body_entered" from="PickUpItem" to="." method="_on_pick_up_item_body_entered"]
 [connection signal="area_entered" from="bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]

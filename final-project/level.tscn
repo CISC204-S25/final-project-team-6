@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cb0g3kuyjojvx"]
+[gd_scene load_steps=17 format=3 uid="uid://cb0g3kuyjojvx"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_yollh"]
 [ext_resource type="Texture2D" uid="uid://dwgu4k6cex4eg" path="res://boat.png" id="1_yq5xo"]
@@ -20,6 +20,9 @@ size = Vector2(5652, 312)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_202l6"]
 size = Vector2(572, 87)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wva7c"]
+size = Vector2(3205.55, 438.889)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_prwvn"]
 size = Vector2(5691, 100)
 
@@ -34,6 +37,7 @@ size = Vector2(81, 861)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_yollh")
+target_scene = "res://bathroom/bathroom.tscn"
 
 [node name="Sky" type="Area2D" parent="."]
 metadata/_edit_group_ = true
@@ -181,7 +185,7 @@ position = Vector2(2825, 133)
 shape = SubResource("RectangleShape2D_04u62")
 
 [node name="boat" type="StaticBody2D" parent="."]
-position = Vector2(445, 276)
+position = Vector2(452, 274)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="boat"]
@@ -192,6 +196,12 @@ shape = SubResource("RectangleShape2D_202l6")
 position = Vector2(282, -19)
 scale = Vector2(0.18, 0.18)
 texture = ExtResource("1_yq5xo")
+
+[node name="boatArea" type="Area2D" parent="boat/Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="boat/Sprite2D/boatArea"]
+position = Vector2(2.77734, 230.556)
+shape = SubResource("RectangleShape2D_wva7c")
 
 [node name="border_top" type="StaticBody2D" parent="."]
 position = Vector2(-19, -332)
@@ -231,3 +241,4 @@ shape = SubResource("RectangleShape2D_m14g1")
 
 [connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
 [connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
+[connection signal="body_entered" from="boat/Sprite2D/boatArea" to="." method="_on_boat_area_body_entered"]
