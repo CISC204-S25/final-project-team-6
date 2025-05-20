@@ -19,3 +19,7 @@ func _on_swimming_body_entered(body: Node2D) -> void:
 
 func _on_swimming_body_exited(body: Node2D) -> void:
 	notSwimming.emit();
+
+
+func _on_collectable_body_entered(body: Node2D) -> void:
+	$collectable.hide();
