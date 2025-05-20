@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://csx2qe7yexmky"]
+[gd_scene load_steps=16 format=3 uid="uid://csx2qe7yexmky"]
 
 [ext_resource type="Script" path="res://bedroom/bedroom.gd" id="1_74c5q"]
 [ext_resource type="Texture2D" uid="uid://cnji0rvtrw6hf" path="res://bedroom/Untitled_Artwork (31).png" id="2_e2iu1"]
+[ext_resource type="PackedScene" uid="uid://t6csj56yqw5m" path="res://items/soda.tscn" id="3_nw23o"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g0tnl"]
 size = Vector2(26, 943)
@@ -31,13 +32,13 @@ size = Vector2(34, 368)
 size = Vector2(188, 566)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dbb1k"]
-size = Vector2(788, 252)
+size = Vector2(788, 218)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wsimb"]
 size = Vector2(50, 538)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_7c6f7"]
-radius = 41.7612
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yh8k6"]
+size = Vector2(175, 51.5)
 
 [node name="bedroom" type="Node2D"]
 script = ExtResource("1_74c5q")
@@ -88,20 +89,16 @@ position = Vector2(2032, 607)
 shape = SubResource("RectangleShape2D_ulway")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Walls"]
-position = Vector2(788, 678)
+position = Vector2(788, 661)
 shape = SubResource("RectangleShape2D_dbb1k")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Walls"]
 position = Vector2(381, 615)
 shape = SubResource("RectangleShape2D_wsimb")
 
-[node name="collectable" type="Area2D" parent="."]
-position = Vector2(474, 926)
-metadata/_edit_group_ = true
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Walls"]
+position = Vector2(92, 920)
+shape = SubResource("RectangleShape2D_yh8k6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collectable"]
-shape = SubResource("CircleShape2D_7c6f7")
-
-[node name="Sprite2D" type="Sprite2D" parent="collectable"]
-
-[connection signal="body_entered" from="collectable" to="." method="_on_collectable_body_entered"]
+[node name="Soda" parent="." instance=ExtResource("3_nw23o")]
+position = Vector2(511, 895)
