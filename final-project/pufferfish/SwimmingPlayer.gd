@@ -181,10 +181,10 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 
 func _is_puffed() -> void:
 	if(Input.is_action_just_pressed("Puffing") && puffed == false):
-		emit_signal("puffed_changed", puffed_changed)
+		emit_signal("puffed_changed")
 		puffed = true;
 		$AnimatedSprite2D.play("puffing_up")
 	elif(Input.is_action_just_pressed("Puffing") && puffed == true):
-		emit_signal("puffed_changed", puffed_changed)
+		emit_signal("puffed_changed")
 		puffed = false;
 		$AnimatedSprite2D.play_backwards("puffing_up")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cb0g3kuyjojvx"]
+[gd_scene load_steps=19 format=3 uid="uid://cb0g3kuyjojvx"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_yollh"]
 [ext_resource type="Texture2D" uid="uid://dwgu4k6cex4eg" path="res://boat.png" id="1_yq5xo"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bkit71ldcypvr" path="res://decoration/seashell.tscn" id="4_22smy"]
 [ext_resource type="PackedScene" uid="uid://vxypf6s87isl" path="res://decoration/lil_pebble.tscn" id="5_jj7nx"]
 [ext_resource type="PackedScene" uid="uid://ekshy4tsxoon" path="res://decoration/cloud.tscn" id="6_17kgl"]
+[ext_resource type="Texture2D" uid="uid://dvt47uujj2jlt" path="res://decoration/Untitled_Artwork (36).png" id="8_u2wv6"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3v8"]
 size = Vector2(5672, 356)
@@ -34,6 +35,9 @@ size = Vector2(60, 1043)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_m14g1"]
 size = Vector2(81, 861)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c15ur"]
+size = Vector2(250.652, 936.888)
 
 [node name="Level" type="Node2D"]
 script = ExtResource("1_yollh")
@@ -238,6 +242,17 @@ metadata/_edit_group_ = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="border_right"]
 position = Vector2(131.5, 316.5)
 shape = SubResource("RectangleShape2D_m14g1")
+
+[node name="Stick" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stick"]
+position = Vector2(2576, 406)
+scale = Vector2(0.275282, 0.415205)
+texture = ExtResource("8_u2wv6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stick/Sprite2D"]
+position = Vector2(-5.44922, 44.5565)
+shape = SubResource("RectangleShape2D_c15ur")
 
 [connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
 [connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
