@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://dn3tee0m4ll02"]
+[gd_scene load_steps=7 format=3 uid="uid://dn3tee0m4ll02"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_e68r0"]
 [ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_n44ml"]
