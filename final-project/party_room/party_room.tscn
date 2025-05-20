@@ -1,8 +1,12 @@
-[gd_scene load_steps=23 format=3 uid="uid://ci4l8ffsw6xm6"]
+[gd_scene load_steps=25 format=3 uid="uid://ci4l8ffsw6xm6"]
 
 [ext_resource type="Script" path="res://party_room/party_room.gd" id="1_078a3"]
 [ext_resource type="Texture2D" uid="uid://cetptcnry47l2" path="res://party_room/Untitled_Artwork (27).png" id="2_us5o7"]
 [ext_resource type="Texture2D" uid="uid://klel4flsrtyq" path="res://party_room/Untitled_Artwork (29).png" id="3_byfbw"]
+[ext_resource type="Texture2D" uid="uid://ljp86ne1vwoi" path="res://party_room/Untitled_Artwork (33).png" id="3_in1j7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_po72i"]
+size = Vector2(395.387, 219.821)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8w3r0"]
 size = Vector2(4621.86, 204.008)
@@ -69,6 +73,18 @@ position = Vector2(1780, 626)
 scale = Vector2(0.623963, 0.646882)
 texture = ExtResource("2_us5o7")
 
+[node name="background2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1781, 622.5)
+scale = Vector2(0.625346, 0.652878)
+texture = ExtResource("3_in1j7")
+
+[node name="Area2D" type="Area2D" parent="background2"]
+
+[node name="lampInPunch" type="CollisionShape2D" parent="background2/Area2D"]
+position = Vector2(-304.034, 93.1177)
+shape = SubResource("RectangleShape2D_po72i")
+
 [node name="walls" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
@@ -126,7 +142,9 @@ position = Vector2(3577.72, 211.309)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_tvjjh")
 
-[node name="punchBowl" type="CollisionPolygon2D" parent="."]
+[node name="PunchBowlArea" type="Area2D" parent="."]
+
+[node name="punchBowl" type="CollisionPolygon2D" parent="PunchBowlArea"]
 polygon = PackedVector2Array(1465, 637, 1716, 636, 1716, 650, 1714, 655, 1713, 662, 1711, 670, 1709, 678, 1705, 690, 1701, 696, 1696, 705, 1691, 713, 1685, 719, 1680, 725, 1673, 732, 1667, 738, 1658, 742, 1649, 746, 1640, 748, 1634, 750, 1624, 753, 1616, 754, 1604, 755, 1589, 755, 1580, 755, 1572, 755, 1564, 755, 1557, 755, 1543, 751, 1535, 748, 1527, 745, 1522, 742, 1514, 738, 1511, 735, 1503, 725, 1493, 713, 1486, 702, 1481, 694, 1476, 685, 1472, 676, 1469, 669, 1467, 662, 1465, 656, 1464, 650, 1464, 643)
 
 [node name="lampStaticBody" type="StaticBody2D" parent="."]
@@ -135,8 +153,10 @@ position = Vector2(1576, 202)
 [node name="lamp" type="CollisionShape2D" parent="lampStaticBody"]
 shape = SubResource("RectangleShape2D_grunc")
 
-[node name="exit" type="CollisionShape2D" parent="."]
+[node name="exitArea" type="Area2D" parent="."]
 position = Vector2(3462.88, 179.5)
+
+[node name="exit" type="CollisionShape2D" parent="exitArea"]
 shape = SubResource("RectangleShape2D_phyts")
 
 [node name="glasses" type="Sprite2D" parent="."]
@@ -148,22 +168,18 @@ texture = ExtResource("3_byfbw")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="glasses/StaticBody2D"]
 position = Vector2(150.549, 3.78564)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_iqah0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="glasses/StaticBody2D"]
 position = Vector2(-8.01294, 130.587)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_vnkbs")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="glasses/StaticBody2D"]
 position = Vector2(-116.99, 162.331)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_yvymq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="glasses/StaticBody2D"]
 position = Vector2(-197.617, 202.932)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_8ilg6")
 
 [node name="InvisbleStaticBody" type="StaticBody2D" parent="."]
@@ -172,12 +188,21 @@ position = Vector2(3259, 211)
 [node name="invisiableDoor" type="CollisionShape2D" parent="InvisbleStaticBody"]
 shape = SubResource("RectangleShape2D_2a32t")
 
-[node name="Item" type="Sprite2D" parent="."]
+[node name="PickUpItem" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Item"]
+[node name="Item" type="Sprite2D" parent="PickUpItem"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpItem/Item"]
 position = Vector2(585, 657)
 shape = SubResource("CircleShape2D_ir340")
 
-[node name="bePuffed" type="CollisionShape2D" parent="."]
+[node name="bePuffedArea" type="Area2D" parent="."]
+
+[node name="bePuffed" type="CollisionShape2D" parent="bePuffedArea"]
 position = Vector2(1747, 272)
 shape = SubResource("RectangleShape2D_c4b66")
+
+[connection signal="area_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
+[connection signal="area_entered" from="exitArea" to="." method="_on_exit_area_area_entered"]
+[connection signal="area_entered" from="PickUpItem" to="." method="_on_pick_up_item_area_entered"]
+[connection signal="area_entered" from="bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]
