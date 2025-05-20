@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://bwjfjnnjnuf82"]
+
+[ext_resource type="Texture2D" uid="uid://ccq2ine6vygwc" path="res://items/spinning1.png" id="1_5hxuh"]
+[ext_resource type="Texture2D" uid="uid://c8xyasujho8xc" path="res://items/spinning2.png" id="2_xyyew"]
+[ext_resource type="Texture2D" uid="uid://jtbm84pvnr76" path="res://items/spinning3.png" id="3_r5mbf"]
+[ext_resource type="Texture2D" uid="uid://cgu00b4wvux0r" path="res://items/spinning4.png" id="4_nl7cj"]
+[ext_resource type="Texture2D" uid="uid://cx1kps5k2d8nh" path="res://items/phone.png" id="5_oe38o"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_btfux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_5hxuh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xyyew")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r5mbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_nl7cj")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbtdd"]
+radius = 120.204
+
+[node name="Phone" type="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_btfux")
+animation = &"spinning"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("5_oe38o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vbtdd")
