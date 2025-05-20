@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://t6csj56yqw5m"]
+[gd_scene load_steps=9 format=3 uid="uid://t6csj56yqw5m"]
 
+[ext_resource type="Script" path="res://items/soda.gd" id="1_kjjgc"]
 [ext_resource type="Texture2D" uid="uid://ccq2ine6vygwc" path="res://items/spinning1.png" id="1_oemio"]
 [ext_resource type="Texture2D" uid="uid://c8xyasujho8xc" path="res://items/spinning2.png" id="2_0k8j8"]
 [ext_resource type="Texture2D" uid="uid://jtbm84pvnr76" path="res://items/spinning3.png" id="3_117wm"]
@@ -30,6 +31,7 @@ animations = [{
 radius = 120.204
 
 [node name="Soda" type="Area2D"]
+script = ExtResource("1_kjjgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.3, 0.3)

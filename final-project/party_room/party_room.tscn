@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cetptcnry47l2" path="res://party_room/Untitled_Artwork (27).png" id="2_us5o7"]
 [ext_resource type="Texture2D" uid="uid://klel4flsrtyq" path="res://party_room/Untitled_Artwork (29).png" id="3_byfbw"]
 [ext_resource type="Texture2D" uid="uid://ljp86ne1vwoi" path="res://party_room/Untitled_Artwork (33).png" id="3_in1j7"]
+[ext_resource type="PackedScene" uid="uid://bwjfjnnjnuf82" path="res://items/phone.tscn" id="5_5t23l"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po72i"]
 size = Vector2(395.387, 219.821)
@@ -58,9 +59,6 @@ size = Vector2(87.5343, 135.71)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a32t"]
 size = Vector2(80, 245.5)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_ir340"]
-radius = 94.0053
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4b66"]
 size = Vector2(94, 160)
@@ -189,24 +187,17 @@ position = Vector2(3259, 211)
 [node name="invisiableDoor" type="CollisionShape2D" parent="InvisbleStaticBody"]
 shape = SubResource("RectangleShape2D_2a32t")
 
-[node name="PickUpItem" type="Area2D" parent="."]
-
-[node name="Item" type="Sprite2D" parent="PickUpItem"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PickUpItem/Item"]
-position = Vector2(585, 657)
-shape = SubResource("CircleShape2D_ir340")
-
 [node name="bePuffedArea" type="Area2D" parent="."]
 
 [node name="bePuffed" type="CollisionShape2D" parent="bePuffedArea"]
 position = Vector2(1747, 272)
 shape = SubResource("RectangleShape2D_c4b66")
 
+[node name="Phone" parent="." instance=ExtResource("5_5t23l")]
+position = Vector2(594, 650)
+
 [connection signal="area_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
 [connection signal="body_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
 [connection signal="area_entered" from="exitArea" to="." method="_on_exit_area_area_entered"]
 [connection signal="body_entered" from="exitArea" to="." method="_on_exit_area_body_entered"]
-[connection signal="area_entered" from="PickUpItem" to="." method="_on_pick_up_item_area_entered"]
-[connection signal="body_entered" from="PickUpItem" to="." method="_on_pick_up_item_body_entered"]
 [connection signal="area_entered" from="bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]

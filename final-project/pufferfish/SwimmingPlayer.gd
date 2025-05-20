@@ -7,8 +7,10 @@ extends CharacterBody2D
 @export var gravity = 900.0
 @export var jump_force = 400.0
 @onready var sprite = $AnimatedSprite2D
+@onready var loadBar = $loadBar
 
 @export var puffed = false
+signal puffed_changed(new_value: bool)
 
 var in_water: bool = true
 @export var water_state_cooldown = 0.01 # in seconds
@@ -79,8 +81,10 @@ func _on_level_not_swimming() -> void:
 	
 
 func _ready() -> void:
-	$loadBar.value = out_of_water_duration
-	$loadBar.hide()
+	loadBar.value = out_of_water_duration
+	loadBar.hide()
+
+
 
 func _process(delta):
 	if water_state_timer > 0.0:
@@ -165,3 +169,13 @@ func _on_animated_sprite_2d_animation_finished() -> void:
 		$AnimatedSprite2D.play(("puffed"))
 	else:
 		$AnimatedSprite2D.stop()
+
+func _is_puffed() -> void:
+	if(Input.is_action_just_pressed("Puffing") && puffed == false):
+		emit_signal("puffed_changed", puffed_changed)
+		puffed = true;
+		$AnimatedSprite2D.play("puffing_up")
+	elif(Input.is_action_just_pressed("Puffing") && puffed == true):
+		emit_signal("puffed_changed", puffed_changed)
+		puffed = false;
+		$AnimatedSprite2D.play_backwards("puffing_up")
