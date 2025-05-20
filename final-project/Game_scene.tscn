@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dn3tee0m4ll02"]
+[gd_scene load_steps=6 format=3 uid="uid://dn3tee0m4ll02"]
 
 [ext_resource type="Script" path="res://Game.gd" id="1_e68r0"]
 [ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_n44ml"]
 [ext_resource type="PackedScene" uid="uid://cb0g3kuyjojvx" path="res://level.tscn" id="3_2shka"]
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="3_lelkb"]
+[ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="5_vqt2b"]
 
 [node name="Game_scene" type="Node2D"]
 script = ExtResource("1_e68r0")
@@ -47,6 +48,11 @@ position = Vector2(572, 367)
 [node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("3_lelkb")]
 position = Vector2(572, 367)
 collision_layer = 3
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_vqt2b")
+autoplay = true
+parameters/looping = false
 
 [connection signal="notSwimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_not_swimming"]
 [connection signal="swimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_swimming"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bab6pnm5d3icy"]
+[gd_scene load_steps=31 format=3 uid="uid://bab6pnm5d3icy"]
 
 [ext_resource type="Texture2D" uid="uid://b26fabo05dqoc" path="res://pufferfish/Untitled_Artwork (7).png" id="1_44b8x"]
 [ext_resource type="Script" path="res://pufferfish/SwimmingPlayer.gd" id="1_gly67"]
@@ -24,6 +24,7 @@
 [ext_resource type="Texture2D" uid="uid://cbpautkyq3gah" path="res://loadbar_ui/under_loadbar.png" id="22_f8gab"]
 [ext_resource type="Texture2D" uid="uid://bxm7vqffbt4yq" path="res://loadbar_ui/over_loadbar.png" id="23_bvm06"]
 [ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="24_gd5qt"]
+[ext_resource type="AudioStream" uid="uid://cv34kjge3pcnb" path="res://Audio/Splash Sound.mp3" id="25_c7uvs"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_k8o4g"]
 animations = [{
@@ -112,6 +113,19 @@ animations = [{
 radius = 24.0
 height = 70.0
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_voguq"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_5unyp"]
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 90.0
+initial_velocity_max = 160.09
+gravity = Vector3(0, 98, 0)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_6g561"]
+particle_flag_disable_z = true
+gravity = Vector3(0, 98, 0)
+
 [node name="pufferfish" type="CharacterBody2D"]
 position = Vector2(-2, 5)
 script = ExtResource("1_gly67")
@@ -153,5 +167,26 @@ theme_override_font_sizes/font_size = 500
 text = "1 2 3"
 horizontal_alignment = 1
 autowrap_mode = 3
+
+[node name="SplashParticlesEnter" type="GPUParticles2D" parent="."]
+top_level = true
+light_mask = 31
+visibility_layer = 31
+material = SubResource("CanvasItemMaterial_voguq")
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_5unyp")
+one_shot = true
+explosiveness = 1.0
+
+[node name="SplashParticlesExit" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 30
+process_material = SubResource("ParticleProcessMaterial_6g561")
+one_shot = true
+explosiveness = 1.0
+
+[node name="WaterSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("25_c7uvs")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

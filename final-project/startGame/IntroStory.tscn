@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b17ih7rgjnhhf"]
+[gd_scene load_steps=5 format=3 uid="uid://b17ih7rgjnhhf"]
 
 [ext_resource type="Texture2D" uid="uid://q1xeinfb4a28" path="res://startGame/Textbox.png" id="1_j1j1x"]
 [ext_resource type="Script" path="res://startGame/intro_story.gd" id="2_xs5l8"]
 [ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="3_a07a5"]
+[ext_resource type="AudioStream" uid="uid://b2sn0tjp2wig0" path="res://Audio/Intro Background Sounds.mp3" id="4_hiyt0"]
 
 [node name="Textbox" type="Sprite2D"]
 position = Vector2(546.25, 333.719)
@@ -42,5 +43,10 @@ offset_right = -1749.5
 offset_bottom = -1242.5
 theme_override_font_sizes/font_size = 70
 text = "Continue"
+
+[node name="BackgroundSounds" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_hiyt0")
+autoplay = true
+parameters/looping = false
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
