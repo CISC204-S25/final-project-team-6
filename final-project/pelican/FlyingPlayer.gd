@@ -82,3 +82,8 @@ func push_objects():
 			collider.apply_central_impulse(collision.get_normal() * -1 * push_force)
 		elif collider is StaticBody2D:
 			velocity = Vector2.ZERO
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	print ("Collided with:",area.name)
+	pass # Replace with function body.

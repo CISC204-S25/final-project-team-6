@@ -6,6 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="3_lelkb"]
 [ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="5_vqt2b"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_lifcs"]
+radius = 67.2086
+
 [node name="Game_scene" type="Node2D"]
 script = ExtResource("1_e68r0")
 
@@ -24,14 +27,19 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
+[node name="Level" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("3_2shka")]
+
 [node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
 position = Vector2(363, 165)
-
-[node name="Level" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("3_2shka")]
 
 [node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_n44ml")]
 collision_layer = 5
 collision_mask = 5
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D"]
+shape = SubResource("CircleShape2D_lifcs")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -42,12 +50,12 @@ handle_input_locally = false
 size = Vector2i(576, 648)
 render_target_update_mode = 4
 
-[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
-position = Vector2(572, 367)
-
 [node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("3_lelkb")]
 position = Vector2(572, 367)
 collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+position = Vector2(572, 367)
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_vqt2b")
@@ -56,5 +64,6 @@ parameters/looping = false
 
 [connection signal="notSwimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_not_swimming"]
 [connection signal="swimming" from="HBoxContainer/SubViewportContainer/SubViewport1/Level" to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_level_swimming"]
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
 
 [editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]

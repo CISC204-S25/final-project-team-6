@@ -1,0 +1,260 @@
+[gd_scene load_steps=36 format=3 uid="uid://c78mcnowa58pg"]
+
+[ext_resource type="Script" path="res://bathroom/bathroom.gd" id="1_6ydqp"]
+[ext_resource type="Texture2D" uid="uid://ddpbvgqd36uec" path="res://bathroom/Untitled_Artwork (25).png" id="2_4m42d"]
+[ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="3_wkrgc"]
+[ext_resource type="PackedScene" uid="uid://b8wyxwwulkfme" path="res://items/chips.tscn" id="4_3q0g8"]
+[ext_resource type="Texture2D" uid="uid://hdoimtbpwypg" path="res://bathroom/closedDoor.png" id="5_muf0u"]
+[ext_resource type="Texture2D" uid="uid://brimus63kenu0" path="res://bathroom/openedDoor.png" id="5_rvag1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qlned"]
+size = Vector2(120.5, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qjvmh"]
+size = Vector2(538.5, 188)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fd7e7"]
+size = Vector2(172, 288)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pko3q"]
+size = Vector2(470, 59)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b1dex"]
+size = Vector2(344, 171)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dych1"]
+size = Vector2(706.5, 239)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y4ckc"]
+size = Vector2(200, 785)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4yj4v"]
+size = Vector2(1589, 55)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_11p6r"]
+size = Vector2(279.5, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4dcyg"]
+size = Vector2(462, 33)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xx1kc"]
+size = Vector2(172, 42)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_buk6o"]
+size = Vector2(20, 98)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bgrsy"]
+size = Vector2(39, 412)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4sqmu"]
+size = Vector2(27, 11.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gqqln"]
+size = Vector2(22.3524, 11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7atd"]
+size = Vector2(14, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tfxe"]
+size = Vector2(608, 94)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2bxad"]
+size = Vector2(164, 165)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bnd44"]
+size = Vector2(445.5, 108.525)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t46x2"]
+size = Vector2(49, 244.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3n4j"]
+size = Vector2(399.5, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hnloi"]
+size = Vector2(49, 237)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sd6gx"]
+size = Vector2(717, 53)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_04klo"]
+size = Vector2(58.5, 194)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3qjrl"]
+size = Vector2(74, 160)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1pse2"]
+radius = 35.0
+height = 120.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5t8"]
+size = Vector2(44, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jofu"]
+size = Vector2(57.5, 407)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qx2by"]
+size = Vector2(160.5, 145.5)
+
+[node name="Bathroom" type="Node2D"]
+script = ExtResource("1_6ydqp")
+
+[node name="pool_bathroom" type="Sprite2D" parent="."]
+position = Vector2(775, 478.375)
+scale = Vector2(0.639669, 0.57509)
+texture = ExtResource("2_4m42d")
+
+[node name="walls" type="StaticBody2D" parent="."]
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+position = Vector2(58.25, 531)
+shape = SubResource("RectangleShape2D_qlned")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls"]
+position = Vector2(1008.75, 503)
+shape = SubResource("RectangleShape2D_qjvmh")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls"]
+position = Vector2(84, 808)
+shape = SubResource("RectangleShape2D_fd7e7")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls"]
+position = Vector2(404, 927.5)
+shape = SubResource("RectangleShape2D_pko3q")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls"]
+position = Vector2(400, 750.5)
+shape = SubResource("RectangleShape2D_b1dex")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls"]
+position = Vector2(988.75, 781.5)
+shape = SubResource("RectangleShape2D_dych1")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls"]
+position = Vector2(1449, 544)
+shape = SubResource("RectangleShape2D_y4ckc")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="walls"]
+position = Vector2(756.5, -30.5)
+shape = SubResource("RectangleShape2D_4yj4v")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="walls"]
+position = Vector2(433.25, 636.5)
+shape = SubResource("RectangleShape2D_11p6r")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="walls"]
+position = Vector2(518, 575)
+rotation = -0.269135
+shape = SubResource("RectangleShape2D_4dcyg")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="walls"]
+position = Vector2(656, 576)
+shape = SubResource("RectangleShape2D_xx1kc")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="walls"]
+position = Vector2(1269, 363)
+shape = SubResource("RectangleShape2D_buk6o")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="walls"]
+position = Vector2(-15.5, 192)
+shape = SubResource("RectangleShape2D_bgrsy")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="walls"]
+position = Vector2(1245, 318)
+shape = SubResource("RectangleShape2D_4sqmu")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="walls"]
+position = Vector2(1227.05, 308.552)
+rotation = 0.644027
+shape = SubResource("RectangleShape2D_gqqln")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="walls"]
+position = Vector2(1215, 279)
+shape = SubResource("RectangleShape2D_u7atd")
+
+[node name="pool_pipes" type="Area2D" parent="."]
+position = Vector2(2, 6)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(428, 450)
+shape = SubResource("RectangleShape2D_7tfxe")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(204, 569)
+shape = SubResource("RectangleShape2D_2bxad")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(481.307, 494.616)
+rotation = -0.279453
+shape = SubResource("RectangleShape2D_bnd44")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(199.5, 770.75)
+shape = SubResource("RectangleShape2D_t46x2")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(422.25, 866.5)
+shape = SubResource("RectangleShape2D_h3n4j")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(603.5, 726)
+shape = SubResource("RectangleShape2D_hnloi")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(986.5, 630.5)
+shape = SubResource("RectangleShape2D_sd6gx")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(1314.75, 509)
+shape = SubResource("RectangleShape2D_04klo")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(1312, 332)
+shape = SubResource("RectangleShape2D_3qjrl")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="pool_pipes"]
+position = Vector2(1275, 273)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1pse2")
+
+[node name="pelican" parent="." instance=ExtResource("3_wkrgc")]
+position = Vector2(98, 328)
+
+[node name="chips" parent="." instance=ExtResource("4_3q0g8")]
+position = Vector2(1447, 75)
+
+[node name="NextLevel" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NextLevel"]
+position = Vector2(1542, 74)
+shape = SubResource("RectangleShape2D_5e5t8")
+
+[node name="Doors" type="StaticBody2D" parent="."]
+
+[node name="OpenDoor" type="Sprite2D" parent="Doors"]
+visible = false
+position = Vector2(834, 205.469)
+scale = Vector2(0.31537, 0.3483)
+texture = ExtResource("5_rvag1")
+
+[node name="ClosedDoor" type="Sprite2D" parent="Doors"]
+position = Vector2(928.5, 203)
+scale = Vector2(0.309091, 0.344103)
+texture = ExtResource("5_muf0u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Doors/ClosedDoor"]
+position = Vector2(-8.08813, 2.90607)
+scale = Vector2(3.23529, 2.9061)
+shape = SubResource("RectangleShape2D_2jofu")
+
+[node name="bePuffed" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bePuffed"]
+position = Vector2(1045.75, 332.75)
+shape = SubResource("RectangleShape2D_qx2by")
+
+[connection signal="body_entered" from="pool_pipes" to="." method="_on_pool_pipes_body_entered"]
+[connection signal="body_exited" from="pool_pipes" to="." method="_on_pool_pipes_body_exited"]
+[connection signal="body_entered" from="NextLevel" to="." method="_on_next_level_body_entered"]
+[connection signal="body_entered" from="bePuffed" to="." method="_on_be_puffed_body_entered"]

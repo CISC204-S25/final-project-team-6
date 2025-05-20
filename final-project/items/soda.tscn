@@ -1,0 +1,46 @@
+[gd_scene load_steps=9 format=3 uid="uid://t6csj56yqw5m"]
+
+[ext_resource type="Script" path="res://items/soda.gd" id="1_kjjgc"]
+[ext_resource type="Texture2D" uid="uid://ccq2ine6vygwc" path="res://items/spinning1.png" id="1_oemio"]
+[ext_resource type="Texture2D" uid="uid://c8xyasujho8xc" path="res://items/spinning2.png" id="2_0k8j8"]
+[ext_resource type="Texture2D" uid="uid://jtbm84pvnr76" path="res://items/spinning3.png" id="3_117wm"]
+[ext_resource type="Texture2D" uid="uid://cgu00b4wvux0r" path="res://items/spinning4.png" id="4_uq65t"]
+[ext_resource type="Texture2D" uid="uid://cj0tx674hbc74" path="res://items/soda.png" id="5_eyj1e"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_btfux"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_oemio")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_0k8j8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_117wm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_uq65t")
+}],
+"loop": true,
+"name": &"spinning",
+"speed": 2.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vbtdd"]
+radius = 120.204
+
+[node name="Soda" type="Area2D"]
+script = ExtResource("1_kjjgc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_btfux")
+animation = &"spinning"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("5_eyj1e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_vbtdd")
