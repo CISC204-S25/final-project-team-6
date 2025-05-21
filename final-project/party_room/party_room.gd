@@ -25,6 +25,21 @@ func _ready() -> void:
 			var remote_transform := RemoteTransform2D.new()
 			remote_transform.remote_path = node["camera"].get_path()
 			node["player"].add_child(remote_transform)
+	
+	# --- AUTO PICKUP LOGIC ---
+	var pelican = players["1"]["player"]
+	var pufferfish = players["2"]["player"]
+
+	# Set carrying_player flag
+	pelican.carrying_player = true
+
+	# Call the same pickup behavior used in _physics_process
+	pufferfish.pickup()
+	pufferfish.set_physics_process(false)
+	pufferfish.visible = false
+
+	# Manually position the pufferfish correctly
+	pufferfish.global_position = pelican.global_position + Vector2(0, 140)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

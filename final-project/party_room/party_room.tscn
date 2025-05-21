@@ -115,11 +115,13 @@ position = Vector2(1781, 622.5)
 scale = Vector2(0.625346, 0.652878)
 texture = ExtResource("3_in1j7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="background2"]
+[node name="background2#StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/background2"]
+position = Vector2(-2848.02, -953.471)
+scale = Vector2(1.59911, 1.53168)
 
-[node name="lampInPunch" type="CollisionShape2D" parent="background2/StaticBody2D"]
-position = Vector2(-304.034, 93.1177)
-scale = Vector2(1, 1)
+[node name="background2_StaticBody2D#lampInPunch" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/background2"]
+position = Vector2(-3334.21, -810.844)
+scale = Vector2(1.59911, 1.53168)
 shape = SubResource("RectangleShape2D_po72i")
 
 [node name="walls" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
@@ -129,72 +131,72 @@ position = Vector2(1778.56, 823.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_8w3r0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls/StaticBody2D"]
+[node name="walls_StaticBody2D#CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(164.5, 354.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_72p7c")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+[node name="walls_StaticBody2D2#CollisionShape2D11" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3577.72, 211.309)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_tvjjh")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D3" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="walls/StaticBody2D3"]
+[node name="walls_StaticBody2D3#CollisionShape2D10" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3401.69, 349.883)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_rng40")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D4" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+[node name="walls_StaticBody2D4#CollisionShape2D9" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3247, 622)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_wtjmw")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D5" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="walls/StaticBody2D5"]
+[node name="walls_StaticBody2D5#CollisionShape2D8" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(313, 631.066)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_wtjmw")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D6" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls/StaticBody2D6"]
+[node name="walls_StaticBody2D6#CollisionShape2D7" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(1674.56, 72.1172)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_61x2s")
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D7" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls/StaticBody2D7"]
+[node name="walls_StaticBody2D7#CollisionShape2D6" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(2886.44, 385.133)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_ohsbm")
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D8" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls/StaticBody2D8"]
+[node name="walls_StaticBody2D8#CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(1952.82, 382.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_tq77g")
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D9" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls/StaticBody2D9"]
+[node name="walls_StaticBody2D9#CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(897.315, 385.258)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_6ihhr")
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D10" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls/StaticBody2D10"]
+[node name="walls_StaticBody2D10#CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(-17.5, 211.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_a0f1p")
