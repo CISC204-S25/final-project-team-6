@@ -1,9 +1,6 @@
 extends Node2D
 signal swimming
 signal notSwimming
-signal puffed_changed
-
-var is_puffed = false
 
 @onready var players := {
 	"1": {
@@ -32,6 +29,7 @@ func _ready() -> void:
 
 	# Set carrying_player flag
 	pelican.carrying_player = true
+	
 
 	# Call the same pickup behavior used in _physics_process
 	pufferfish.pickup()
@@ -55,20 +53,13 @@ func _on_pool_pipes_body_exited(body: Node2D) -> void:
 	notSwimming.emit();
 
 
-func _on_collectable_body_entered(body: Node2D) -> void:
-	$collectable.hide();
-
-
-
 func _on_next_level_body_entered(body: Node2D) -> void:
 	get_tree().change_scene_to_file("res://vent_room/vent_room.tscn")
 
 
 func _on_be_puffed_body_entered(body: Node2D) -> void:
-	if(is_puffed == true):
-		$Doors/ClosedDoor.hide()
-		$Doors/OpenDoor.show()
-
-func _on_puffed_changed(new_bool : bool):
-	if new_bool:
-		is_puffed = true
+	print("Trying to Open the Door")
+	if(IsPuffed.puffed == true && body):
+		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea/closedDoorColl.set_deferred("disabled", true)
+		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea.hide()
+		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors/OpenDoor.show()

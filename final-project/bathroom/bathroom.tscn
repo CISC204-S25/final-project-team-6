@@ -94,11 +94,11 @@ height = 120.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5e5t8"]
 size = Vector2(44, 150)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jofu"]
+size = Vector2(8.65451, 142.115)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx2by"]
 size = Vector2(160.5, 145.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_2jofu"]
-size = Vector2(57.5, 407)
 
 [node name="Bathroom" type="Node2D"]
 script = ExtResource("1_6ydqp")
@@ -253,14 +253,23 @@ position = Vector2(1275, 273)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_1pse2")
 
-[node name="chips" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level" instance=ExtResource("4_3q0g8")]
-position = Vector2(1447, 75)
-
 [node name="NextLevel" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/NextLevel"]
 position = Vector2(1542, 74)
 shape = SubResource("RectangleShape2D_5e5t8")
+
+[node name="Doors_ClosedDoorArea" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+
+[node name="ClosedDoor" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea"]
+position = Vector2(928.5, 203)
+scale = Vector2(0.309091, 0.344103)
+texture = ExtResource("5_muf0u")
+
+[node name="closedDoorColl" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea"]
+position = Vector2(926, 202.5)
+scale = Vector2(3.23529, 2.9061)
+shape = SubResource("RectangleShape2D_2jofu")
 
 [node name="Doors" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
 
@@ -270,16 +279,14 @@ position = Vector2(834, 205.469)
 scale = Vector2(0.31537, 0.3483)
 texture = ExtResource("5_rvag1")
 
-[node name="ClosedDoor" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors"]
-position = Vector2(928.5, 203)
-scale = Vector2(0.309091, 0.344103)
-texture = ExtResource("5_muf0u")
-
 [node name="bePuffed" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/bePuffed"]
 position = Vector2(1045.75, 332.75)
 shape = SubResource("RectangleShape2D_qx2by")
+
+[node name="chips" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level" instance=ExtResource("4_3q0g8")]
+position = Vector2(1436, 80)
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -296,13 +303,6 @@ collision_layer = 3
 
 [node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
 position = Vector2(572, 367)
-
-[node name="Doors_ClosedDoor#StaticBody2D" type="StaticBody2D" parent="."]
-
-[node name="Doors_ClosedDoor_StaticBody2D#CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-8.08813, 2.90607)
-scale = Vector2(3.23529, 2.9061)
-shape = SubResource("RectangleShape2D_2jofu")
 
 [node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_ey7pp")
