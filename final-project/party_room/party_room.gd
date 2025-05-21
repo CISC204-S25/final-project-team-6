@@ -50,13 +50,6 @@ func _process(delta: float) -> void:
 		notSwimming.emit();
 
 
-func _on_swimming_body_entered(body: Node2D) -> void:
-	swimming.emit();
-
-
-func _on_swimming_body_exited(body: Node2D) -> void:
-	notSwimming.emit();
-
 
 func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 	if(IsPuffed.puffed == true && body):

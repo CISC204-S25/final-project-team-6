@@ -2,6 +2,8 @@ extends Node2D
 signal swimming
 signal notSwimming
 
+var swim = 0;
+
 @onready var players := {
 	"1": {
 		viewport = $"HBoxContainer/SubViewportContainer/SubViewport1",
@@ -44,7 +46,7 @@ func _process(delta: float) -> void:
 	var pelican = players["1"]["player"]
 	var pufferfish = players["2"]["player"]
 	
-	if pelican.carrying_player == false:
+	if pelican.carrying_player == false and swim == 0:
 		notSwimming.emit();
 
 

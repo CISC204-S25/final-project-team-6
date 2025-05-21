@@ -2,6 +2,8 @@ extends Node2D
 signal swimming
 signal notSwimming
 
+var swim = 0;
+
 @onready var players := {
 	"1": {
 		viewport = $"HBoxContainer/SubViewportContainer/SubViewport1",
@@ -42,15 +44,23 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var pelican = players["1"]["player"]
+	var pufferfish = players["2"]["player"]
+	if swim == 1:
+		swimming.emit()
+	elif swim == 0:
+		notSwimming.emit()
+	
+	if pelican.carrying_player == false and swim == 0:
+		notSwimming.emit();
 
 
 func _on_pool_pipes_body_entered(body: Node2D) -> void:
-	swimming.emit();
+	swim = 1;
 
 
 func _on_pool_pipes_body_exited(body: Node2D) -> void:
-	notSwimming.emit();
+	swim = 0;
 
 
 func _on_next_level_body_entered(body: Node2D) -> void:
@@ -63,3 +73,7 @@ func _on_be_puffed_body_entered(body: Node2D) -> void:
 		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea/closedDoorColl.set_deferred("disabled", true)
 		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors_ClosedDoorArea.hide()
 		$HBoxContainer/SubViewportContainer/SubViewport1/Level/Doors/OpenDoor.show()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	swim = 0;
