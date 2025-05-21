@@ -250,8 +250,9 @@ position = Vector2(2576, 406)
 scale = Vector2(0.275282, 0.415205)
 texture = ExtResource("8_u2wv6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stick/Sprite2D"]
-position = Vector2(-5.44922, 44.5565)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Stick"]
+position = Vector2(2574.5, 424.5)
+scale = Vector2(0.275282, 0.415205)
 shape = SubResource("RectangleShape2D_c15ur")
 
 [connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
