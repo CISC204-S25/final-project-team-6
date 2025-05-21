@@ -106,6 +106,16 @@ func _on_bathroom_not_swimming() -> void:
 		water_state_timer = water_state_cooldown
 		last_water_position = global_position # Save current position
 	print("Exited water")	
+	
+func _on_bedroom_not_swimming() -> void:
+	$AnimatedSprite2D.play("puffing_up")
+	$loadBar/countdown.text = "10"
+	$loadBar.show()
+	if water_state_timer <= 0.0:
+		in_water = false
+		water_state_timer = water_state_cooldown
+		last_water_position = global_position # Save current position
+	print("Exited water")	
 
 func _ready() -> void:
 	loadBar.value = out_of_water_duration

@@ -41,7 +41,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var pelican = players["1"]["player"]
+	var pufferfish = players["2"]["player"]
+	
+	if pelican.carrying_player == false:
+		notSwimming.emit();
 
 
 func _on_collectable_body_entered(body: Node2D) -> void:
