@@ -59,7 +59,7 @@ height = 188.0
 size = Vector2(203.5, 138.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_phyts"]
-size = Vector2(199.75, 315)
+size = Vector2(178, 292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqah0"]
 size = Vector2(166.863, 429.209)
@@ -77,7 +77,7 @@ size = Vector2(87.5343, 135.71)
 size = Vector2(478.108, 29.4879)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a32t"]
-size = Vector2(80, 245.5)
+size = Vector2(80, 173)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4b66"]
 size = Vector2(222, 160)
@@ -251,6 +251,7 @@ shape = SubResource("RectangleShape2D_grunc")
 position = Vector2(3462.88, 179.5)
 
 [node name="exit" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea"]
+position = Vector2(1.12012, -11.5)
 shape = SubResource("RectangleShape2D_phyts")
 
 [node name="glasses" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
@@ -287,6 +288,7 @@ shape = SubResource("RectangleShape2D_s4nmf")
 position = Vector2(3259, 211)
 
 [node name="invisiableDoor" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/InvisbleStaticBody"]
+position = Vector2(2, 12)
 shape = SubResource("RectangleShape2D_2a32t")
 
 [node name="Phone" parent="HBoxContainer/SubViewportContainer/SubViewport1/level" instance=ExtResource("5_5t23l")]

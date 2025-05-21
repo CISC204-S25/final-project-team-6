@@ -240,14 +240,15 @@ func push_objects():
 			velocity = Vector2.ZERO
 
 
-func _on_animated_sprite_2d_animation_finished() -> void:
+func _on_animated_sprite_2d_animation_finished(delta) -> void:
 	if($AnimatedSprite2D.animation == "puffing_up"):
 		print("finsihed Animation")
+		await get_tree().create_timer(.8).timeout
 		$AnimatedSprite2D.play("puffed")
 	else:
 		$AnimatedSprite2D.play("swimming")
 
 func _play_puffed() -> void:
 	$AnimatedSprite2D.play("puffing_up")
-	_on_animated_sprite_2d_animation_finished()
+	_on_animated_sprite_2d_animation_finished(get_process_delta_time())
 	
