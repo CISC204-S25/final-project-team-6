@@ -1,9 +1,7 @@
 extends Node2D
 signal swimming
 signal notSwimming
-signal puffed_changed
 
-var is_puffed = false
 var swim = 0;
 
 @onready var players := {
@@ -52,6 +50,14 @@ func _process(delta: float) -> void:
 		notSwimming.emit();
 
 
+func _on_swimming_body_entered(body: Node2D) -> void:
+	swimming.emit();
+
+
+func _on_swimming_body_exited(body: Node2D) -> void:
+	notSwimming.emit();
+
+
 func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 	if(IsPuffed.puffed == true):
 		$HBoxContainer/SubViewportContainer/SubViewport1/level/background2.show()
@@ -60,15 +66,6 @@ func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 func _on_exit_area_body_entered(body: Node2D) -> void:
 	#leads back to the vent room
 	pass # Replace with function body.
-
-
-func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
-	swimming.emit();
-func _on_puffed_changed(new_bool : bool):
-	if new_bool:
-		is_puffed = true
-
-
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swimming.emit();
