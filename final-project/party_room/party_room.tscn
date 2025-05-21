@@ -277,9 +277,11 @@ stream = ExtResource("8_slixk")
 autoplay = true
 parameters/looping = false
 
+[connection signal="notSwimming" from="." to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_party_room_not_swimming"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
+[connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_body_exited"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_area_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_body_entered"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]
