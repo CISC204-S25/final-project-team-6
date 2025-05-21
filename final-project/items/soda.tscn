@@ -28,7 +28,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbtdd"]
-radius = 55.0364
+radius = 54.0833
 
 [node name="Soda" type="Area2D"]
 script = ExtResource("1_kjjgc")
