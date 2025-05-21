@@ -130,7 +130,7 @@ func _on_party_room_swimming() -> void:
 		last_water_position = global_position # Save current position
 		out_of_water_timer = 0.0 # reset out-of-water timer
 		sprite.modulate = Color(1, 1, 1)
-	print("Entered water")
+	print("Entered water P")
 
 func _ready() -> void:
 	$AnimatedSprite2D.play("idle")

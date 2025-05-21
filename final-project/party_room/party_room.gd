@@ -19,6 +19,7 @@ var swim = 0;
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	swim = 0;
 	players["2"]["viewport"].world_2d = players["1"]["viewport"].world_2d
 	for node in players.values():
 			var remote_transform := RemoteTransform2D.new()
@@ -45,7 +46,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	var pelican = players["1"]["player"]
 	var pufferfish = players["2"]["player"]
-	
+	print(swim);
+	if swim == 0:
+		notSwimming.emit();
+	elif swim == 1:
+		swimming.emit();
+		
 	if pelican.carrying_player == false and swim == 0:
 		notSwimming.emit();
 
@@ -61,12 +67,10 @@ func _on_exit_area_body_entered(body: Node2D) -> void:
 	pass
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
-	swimming.emit();
 	swim = 1;
 
 
 func _on_punch_bowl_area_body_exited(body: Node2D) -> void:
-	notSwimming.emit();
 	swim = 0;
 
 func _on_phone_body_entered(body : Node2D) -> void:

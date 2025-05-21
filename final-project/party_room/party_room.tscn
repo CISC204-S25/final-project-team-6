@@ -237,7 +237,7 @@ shape = SubResource("RectangleShape2D_gtfam")
 [node name="PunchBowlArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea"]
-position = Vector2(1590, 693)
+position = Vector2(1591, 687)
 scale = Vector2(1, 0.64)
 shape = SubResource("CapsuleShape2D_u74ex")
 
