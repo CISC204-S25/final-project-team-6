@@ -45,6 +45,7 @@ func _on_water_area_body_entered(body):
 
 func _on_water_area_body_exited(body):
 	_play_puffed()
+	IsPuffed.puffed = true;
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if body == self and water_state_timer <= 0.0:
@@ -71,6 +72,7 @@ func _on_level_swimming() -> void:
 
 func _on_level_not_swimming() -> void:
 	_play_puffed()
+	IsPuffed.puffed = true;
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
@@ -111,6 +113,7 @@ func _on_bedroom_not_swimming() -> void:
 	
 func _on_party_room_not_swimming() -> void:
 	_play_puffed()
+	IsPuffed.puffed = true;
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
@@ -161,11 +164,13 @@ func _process(delta):
 	
 	if(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == false):
 		IsPuffed.puffed = true;
+		print("puffing")
 		$AnimatedSprite2D.play("puffing_up")
 		await get_tree().create_timer(.8).timeout
 		$AnimatedSprite2D.play("puffed")
 	elif(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == true):
 		IsPuffed.puffed = false;
+		print("not puffed")
 		$AnimatedSprite2D.play_backwards("puffing_up")
 		await get_tree().create_timer(.8).timeout
 		$AnimatedSprite2D.play("idle")
