@@ -110,8 +110,8 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uxfpu"]
-radius = 24.0
-height = 70.0
+radius = 16.0
+height = 48.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_voguq"]
 
@@ -136,7 +136,7 @@ sprite_frames = SubResource("SpriteFrames_k8o4g")
 animation = &"puffing_up"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, -1)
+position = Vector2(-1, 1)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uxfpu")
 

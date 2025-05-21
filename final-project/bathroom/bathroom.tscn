@@ -309,6 +309,8 @@ stream = ExtResource("8_ey7pp")
 autoplay = true
 parameters/looping = false
 
+[connection signal="notSwimming" from="." to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_bathroom_not_swimming"]
+[connection signal="swimming" from="." to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_bathroom_swimming"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes" to="." method="_on_pool_pipes_body_entered"]
 [connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes" to="." method="_on_pool_pipes_body_exited"]
