@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cb0g3kuyjojvx"]
+[gd_scene load_steps=20 format=3 uid="uid://cb0g3kuyjojvx"]
 
 [ext_resource type="Script" path="res://level.gd" id="1_yollh"]
 [ext_resource type="Texture2D" uid="uid://dwgu4k6cex4eg" path="res://boat.png" id="1_yq5xo"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://vxypf6s87isl" path="res://decoration/lil_pebble.tscn" id="5_jj7nx"]
 [ext_resource type="PackedScene" uid="uid://ekshy4tsxoon" path="res://decoration/cloud.tscn" id="6_17kgl"]
 [ext_resource type="Texture2D" uid="uid://dvt47uujj2jlt" path="res://decoration/Untitled_Artwork (36).png" id="8_u2wv6"]
+[ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="9_b3eys"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uc3v8"]
 size = Vector2(5672, 356)
@@ -260,6 +261,7 @@ offset_left = 536.0
 offset_top = 380.0
 offset_right = 672.0
 offset_bottom = 415.0
+theme_override_fonts/font = ExtResource("9_b3eys")
 theme_override_font_sizes/font_size = 25
 text = "Arrow Keys"
 
@@ -268,6 +270,7 @@ offset_left = 304.0
 offset_top = 166.0
 offset_right = 421.0
 offset_bottom = 216.0
+theme_override_fonts/font = ExtResource("9_b3eys")
 theme_override_font_sizes/font_size = 25
 text = "W, A, S, D"
 
@@ -276,6 +279,7 @@ offset_left = 100.0
 offset_top = 311.0
 offset_right = 419.0
 offset_bottom = 346.0
+theme_override_fonts/font = ExtResource("9_b3eys")
 theme_override_font_sizes/font_size = 25
 text = "Use 'E' to pick up and drop"
 

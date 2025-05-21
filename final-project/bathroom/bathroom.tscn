@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=3 uid="uid://c78mcnowa58pg"]
+[gd_scene load_steps=40 format=3 uid="uid://c78mcnowa58pg"]
 
 [ext_resource type="Script" path="res://bathroom/bathroom.gd" id="1_6ydqp"]
 [ext_resource type="Texture2D" uid="uid://ddpbvgqd36uec" path="res://bathroom/Untitled_Artwork (25).png" id="2_4m42d"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://b8wyxwwulkfme" path="res://items/chips.tscn" id="4_3q0g8"]
 [ext_resource type="Texture2D" uid="uid://hdoimtbpwypg" path="res://bathroom/closedDoor.png" id="5_muf0u"]
 [ext_resource type="Texture2D" uid="uid://brimus63kenu0" path="res://bathroom/openedDoor.png" id="5_rvag1"]
+[ext_resource type="FontFile" uid="uid://d0lklshtryjax" path="res://font/Comic Kids.ttf" id="6_hbyc4"]
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="7_s2pfn"]
 [ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="8_ey7pp"]
 
@@ -297,17 +298,20 @@ offset_left = 1414.0
 offset_top = 59.0
 offset_right = 1469.0
 offset_bottom = 117.0
+theme_override_fonts/font = ExtResource("6_hbyc4")
 theme_override_font_sizes/font_size = 30
 text = "->"
 
 [node name="chips" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level" instance=ExtResource("4_3q0g8")]
-position = Vector2(1432, 82)
+position = Vector2(1439, 77)
 
 [node name="Label" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
-offset_left = 1383.0
-offset_top = 7.0
-offset_right = 1487.0
-offset_bottom = 30.0
+offset_left = 1369.0
+offset_top = 8.0
+offset_right = 1514.0
+offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("6_hbyc4")
+theme_override_font_sizes/font_size = 25
 text = "Collect Chips!"
 
 [node name="Label2" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
@@ -315,6 +319,8 @@ offset_left = 977.0
 offset_top = 145.0
 offset_right = 1090.0
 offset_bottom = 168.0
+theme_override_fonts/font = ExtResource("6_hbyc4")
+theme_override_font_sizes/font_size = 25
 text = "Open the door"
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
