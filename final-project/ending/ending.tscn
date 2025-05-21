@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfs2n3850ceyi"]
+
+[ext_resource type="Texture2D" uid="uid://bv2srh3f85y6i" path="res://ending/Untitled_Artwork (37).png" id="1_pm76y"]
+
+[node name="Ending" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 107.0
+offset_top = -11.0
+offset_right = 1005.0
+offset_bottom = 500.0
+texture = ExtResource("1_pm76y")
+expand_mode = 1

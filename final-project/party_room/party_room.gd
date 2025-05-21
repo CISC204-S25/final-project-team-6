@@ -64,7 +64,7 @@ func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 		$HBoxContainer/SubViewportContainer/SubViewport1/level/lampStaticBody/lamp.set_deferred("disabled", true)
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://vent_room/vent_room.tscn")
+	get_tree().change_scene_to_file("res://ending/ending.tscn")
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swim = 1;
