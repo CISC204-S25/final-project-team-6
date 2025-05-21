@@ -29,7 +29,7 @@ size = Vector2(1764, 52)
 size = Vector2(26, 720)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtxm8"]
-size = Vector2(1774, 34)
+size = Vector2(1774, 248)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_chf7l"]
 size = Vector2(34, 368)
@@ -112,7 +112,7 @@ position = Vector2(341, 570)
 shape = SubResource("RectangleShape2D_pbsb4")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Walls"]
-position = Vector2(1243, 905)
+position = Vector2(1243, 1012)
 shape = SubResource("RectangleShape2D_mtxm8")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Walls"]
@@ -132,7 +132,7 @@ position = Vector2(381, 615)
 shape = SubResource("RectangleShape2D_wsimb")
 
 [node name="Soda" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level" instance=ExtResource("3_nw23o")]
-position = Vector2(511, 895)
+position = Vector2(499, 907)
 
 [node name="vent" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
 

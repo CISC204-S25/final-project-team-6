@@ -28,19 +28,22 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vbtdd"]
-radius = 120.204
+radius = 55.0364
 
 [node name="Soda" type="Area2D"]
 script = ExtResource("1_kjjgc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(0.3, 0.3)
+position = Vector2(3, -1)
+scale = Vector2(0.154594, 0.143186)
 sprite_frames = SubResource("SpriteFrames_btfux")
 animation = &"spinning"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.12, 0.12)
+position = Vector2(-2, 1)
+scale = Vector2(0.0670422, 0.067619)
 texture = ExtResource("5_eyj1e")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 1)
 shape = SubResource("CircleShape2D_vbtdd")
