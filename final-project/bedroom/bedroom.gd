@@ -54,4 +54,6 @@ func _on_vent_body_entered(body: Node2D) -> void:
 
 
 func _on_soda_body_entered(body: Node2D) -> void:
+	print("Got Soda!")
 	$HBoxContainer/SubViewportContainer/SubViewport1/Level/Soda.hide();
+	Soda.gotSoda = true

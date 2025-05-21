@@ -7,6 +7,7 @@ func _ready() -> void:
 	play_animation("AnimatedSprite2D", "spinning")
 
 func _on_body_entered(body: Node2D) -> void:
+	print("Got Phone!")
 	gotPhone = true
 	$".".hide()
 

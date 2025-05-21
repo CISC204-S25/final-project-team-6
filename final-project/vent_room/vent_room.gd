@@ -39,12 +39,10 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	#Use for later
-	#if(gotBedroomItem == true):
-		#$Stopper1.hide()
-	#if(gotPartyRoomItem == true):
-		#$Stopper2.hide()
-	pass
+	if(Soda.gotSoda == true):
+		$HBoxContainer/SubViewportContainer/SubViewport1/level/Stopper1/CollisionShape2D.set_deferred("disabled", true)
+	if(Phone.gotPhone == true):
+		$HBoxContainer/SubViewportContainer/SubViewport1/level/Stopper1/CollisionShape2D.set_deferred("disabled", true)
 
 
 
