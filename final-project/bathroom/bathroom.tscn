@@ -73,7 +73,7 @@ size = Vector2(445.5, 108.525)
 size = Vector2(49, 244.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3n4j"]
-size = Vector2(399.5, 53)
+size = Vector2(405.5, 54)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hnloi"]
 size = Vector2(49, 237)
@@ -132,6 +132,13 @@ shape = SubResource("CircleShape2D_hsseb")
 
 [node name="Level" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
 z_index = -10
+
+[node name="ColorRect" type="ColorRect" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+offset_left = -277.0
+offset_top = -156.0
+offset_right = 1816.0
+offset_bottom = 957.0
+color = Color(0.54902, 0.776471, 0.937255, 1)
 
 [node name="pool_bathroom" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
 position = Vector2(775, 478.375)
@@ -229,7 +236,7 @@ position = Vector2(199.5, 770.75)
 shape = SubResource("RectangleShape2D_t46x2")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes"]
-position = Vector2(422.25, 866.5)
+position = Vector2(425.25, 862)
 shape = SubResource("RectangleShape2D_h3n4j")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes"]
@@ -285,8 +292,30 @@ texture = ExtResource("5_rvag1")
 position = Vector2(1045.75, 332.75)
 shape = SubResource("RectangleShape2D_qx2by")
 
+[node name="Label3" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+offset_left = 1414.0
+offset_top = 59.0
+offset_right = 1469.0
+offset_bottom = 117.0
+theme_override_font_sizes/font_size = 30
+text = "->"
+
 [node name="chips" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level" instance=ExtResource("4_3q0g8")]
-position = Vector2(1436, 80)
+position = Vector2(1432, 82)
+
+[node name="Label" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+offset_left = 1383.0
+offset_top = 7.0
+offset_right = 1487.0
+offset_bottom = 30.0
+text = "Collect Chips!"
+
+[node name="Label2" type="Label" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+offset_left = 977.0
+offset_top = 145.0
+offset_right = 1090.0
+offset_bottom = 168.0
+text = "Open the door"
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2

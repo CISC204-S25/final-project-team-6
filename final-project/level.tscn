@@ -255,6 +255,30 @@ position = Vector2(2574.5, 424.5)
 scale = Vector2(0.275282, 0.415205)
 shape = SubResource("RectangleShape2D_c15ur")
 
+[node name="Label2" type="Label" parent="."]
+offset_left = 536.0
+offset_top = 380.0
+offset_right = 672.0
+offset_bottom = 415.0
+theme_override_font_sizes/font_size = 25
+text = "Arrow Keys"
+
+[node name="Label" type="Label" parent="."]
+offset_left = 304.0
+offset_top = 166.0
+offset_right = 421.0
+offset_bottom = 216.0
+theme_override_font_sizes/font_size = 25
+text = "W, A, S, D"
+
+[node name="Label3" type="Label" parent="."]
+offset_left = 100.0
+offset_top = 311.0
+offset_right = 419.0
+offset_bottom = 346.0
+theme_override_font_sizes/font_size = 25
+text = "Use 'E' to pick up and drop"
+
 [connection signal="body_entered" from="Ocean/swimming" to="." method="_on_swimming_body_entered"]
 [connection signal="body_exited" from="Ocean/swimming" to="." method="_on_swimming_body_exited"]
 [connection signal="body_entered" from="boat/Sprite2D/boatArea" to="." method="_on_boat_area_body_entered"]
