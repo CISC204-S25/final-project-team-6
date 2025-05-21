@@ -1,6 +1,10 @@
 extends Node2D
 signal swimming
 signal notSwimming
+signal puffed_changed
+
+var is_puffed = false
+var swim = 0;
 
 @onready var players := {
 	"1": {
@@ -41,15 +45,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
-
-
-func _on_swimming_body_entered(body: Node2D) -> void:
-	swimming.emit();
-
-
-func _on_swimming_body_exited(body: Node2D) -> void:
-	notSwimming.emit();
+	var pelican = players["1"]["player"]
+	var pufferfish = players["2"]["player"]
+	
+	if pelican.carrying_player == false and swim == 0:
+		notSwimming.emit();
 
 
 func _on_be_puffed_area_body_entered(body: Node2D) -> void:
@@ -64,3 +64,17 @@ func _on_exit_area_body_entered(body: Node2D) -> void:
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swimming.emit();
+func _on_puffed_changed(new_bool : bool):
+	if new_bool:
+		is_puffed = true
+
+
+
+func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
+	swimming.emit();
+	swim = 1;
+
+
+func _on_punch_bowl_area_body_exited(body: Node2D) -> void:
+	notSwimming.emit();
+	swim = 0;

@@ -111,6 +111,26 @@ func _on_bedroom_not_swimming() -> void:
 		water_state_timer = water_state_cooldown
 		last_water_position = global_position # Save current position
 	print("Exited water")	
+	
+func _on_party_room_not_swimming() -> void:
+	$AnimatedSprite2D.play("puffing_up")
+	$loadBar/countdown.text = "10"
+	$loadBar.show()
+	if water_state_timer <= 0.0:
+		in_water = false
+		water_state_timer = water_state_cooldown
+		last_water_position = global_position # Save current position
+	print("Exited water")	
+	
+func _on_party_room_swimming() -> void:
+	$loadBar.hide()
+	if water_state_timer <= 0.0:
+		in_water = true
+		water_state_timer = water_state_cooldown
+		last_water_position = global_position # Save current position
+		out_of_water_timer = 0.0 # reset out-of-water timer
+		sprite.modulate = Color(1, 1, 1)
+	print("Entered water")
 
 func _ready() -> void:
 	loadBar.value = out_of_water_duration
