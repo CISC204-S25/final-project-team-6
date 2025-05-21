@@ -50,3 +50,7 @@ func _process(delta: float) -> void:
 
 func _on_collectable_body_entered(body: Node2D) -> void:
 	$collectable.hide();
+
+
+func _on_vent_body_entered(body: Node2D) -> void:
+	get_tree().change_scene_to_file("res://vent_room/vent_room.tscn")
