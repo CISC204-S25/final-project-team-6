@@ -19,6 +19,8 @@ var out_of_water_timer = 0.0
 
 var pickedup: bool = false
 
+var finsihedAnimation = false
+
 var countdownText = 5
 
 func pickup():
@@ -42,7 +44,7 @@ func _on_water_area_body_entered(body):
 		print("Entered water")
 
 func _on_water_area_body_exited(body):
-	IsPuffed.puffed = true
+	_play_puffed()
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if body == self and water_state_timer <= 0.0:
@@ -68,18 +70,15 @@ func _on_level_swimming() -> void:
 	print("Entered water")
 
 func _on_level_not_swimming() -> void:
-	IsPuffed.puffed = true
-	$AnimatedSprite2D.play("puffing_up")
+	_play_puffed()
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
 		in_water = false
 		water_state_timer = water_state_cooldown
 		last_water_position = global_position # Save current position
-	print("Exited water")
 	
 func _on_bathroom_swimming() -> void:
-	IsPuffed.puffed = true
 	$loadBar.hide()
 	if water_state_timer <= 0.0:
 		in_water = true
@@ -91,8 +90,7 @@ func _on_bathroom_swimming() -> void:
 
 
 func _on_bathroom_not_swimming() -> void:
-	IsPuffed.puffed = true
-	$AnimatedSprite2D.play("puffing_up")
+	_play_puffed()
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
@@ -102,8 +100,7 @@ func _on_bathroom_not_swimming() -> void:
 	print("Exited water")	
 	
 func _on_bedroom_not_swimming() -> void:
-	IsPuffed.puffed = true
-	$AnimatedSprite2D.play("puffing_up")
+	_play_puffed()
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
@@ -113,7 +110,7 @@ func _on_bedroom_not_swimming() -> void:
 	print("Exited water")	
 	
 func _on_party_room_not_swimming() -> void:
-	$AnimatedSprite2D.play("puffing_up")
+	_play_puffed()
 	$loadBar/countdown.text = "10"
 	$loadBar.show()
 	if water_state_timer <= 0.0:
@@ -133,6 +130,7 @@ func _on_party_room_swimming() -> void:
 	print("Entered water")
 
 func _ready() -> void:
+	$AnimatedSprite2D.play("idle")
 	loadBar.value = out_of_water_duration
 	loadBar.hide()
 
@@ -160,27 +158,28 @@ func _process(delta):
 			out_of_water_timer = 0.0
 	else:
 		out_of_water_timer = 0.0
-		#
-	#if(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == false):
+	
+	if(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == false):
+		IsPuffed.puffed = true;
+		$AnimatedSprite2D.play("puffing_up")
+		await get_tree().create_timer(.8).timeout
+		$AnimatedSprite2D.play("puffed")
+	elif(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == true):
+		IsPuffed.puffed = false;
+		$AnimatedSprite2D.play_backwards("puffing_up")
+		await get_tree().create_timer(.8).timeout
+		$AnimatedSprite2D.play("idle")
+		
+#func _input(event: InputEvent) -> void:
+	#if(event.is_action_pressed("Puffing") && IsPuffed.puffed == false):
 		#IsPuffed.puffed = true;
 		#$AnimatedSprite2D.play("puffing_up")
-	#elif(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == true):
+		#_on_animated_sprite_2d_animation_finished()
+	#elif(event.is_action_pressed("Puffing") && IsPuffed.puffed == true):
 		#IsPuffed.puffed = false;
 		#$AnimatedSprite2D.play_backwards("puffing_up")
 		#await get_tree().create_timer(3).timeout
-		#$AnimatedSprite2D.stop()
-		
-
-func _input(event: InputEvent) -> void:
-	if(event.is_action_pressed("Puffing") && IsPuffed.puffed == false):
-		IsPuffed.puffed = true;
-		$AnimatedSprite2D.play("puffing_up")
-		_on_animated_sprite_2d_animation_finished()
-	elif(event.is_action_pressed("Puffing") && IsPuffed.puffed == true):
-		IsPuffed.puffed = false;
-		$AnimatedSprite2D.play_backwards("puffing_up")
-		await get_tree().create_timer(3).timeout
-		$AnimatedSprite2D.stop()
+		#$AnimatedSprite2D.play("idle")
 
 func ground_movement(delta):
 	var input_direction = Input.get_axis("FishLeft", "FishRight")
@@ -200,13 +199,13 @@ func swim_movement(delta):
 	)
 
 	if input_direction != Vector2.ZERO:
-		$AnimatedSprite2D.play("swimming")
+		if($AnimatedSprite2D.animation == "swimming" || $AnimatedSprite2D.animation == "idle"):
+			$AnimatedSprite2D.play("swimming")
 		input_direction = input_direction.normalized()
 		velocity += input_direction * acceleration * delta
 		if input_direction.x != 0:
 			sprite.scale.x = abs(sprite.scale.x) * sign(input_direction.x) * -1
 	else:
-		$AnimatedSprite2D.play("idle")
 		velocity = velocity.move_toward(Vector2.ZERO, acceleration * delta)
 
 	if velocity.length() > max_velocity:
@@ -237,8 +236,13 @@ func push_objects():
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:
-	print("finsihed Animation")
 	if($AnimatedSprite2D.animation == "puffing_up"):
-		$AnimatedSprite2D.play(("puffed"))
+		print("finsihed Animation")
+		$AnimatedSprite2D.play("puffed")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("swimming")
+
+func _play_puffed() -> void:
+	$AnimatedSprite2D.play("puffing_up")
+	_on_animated_sprite_2d_animation_finished()
+	
