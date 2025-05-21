@@ -1,10 +1,16 @@
-[gd_scene load_steps=25 format=3 uid="uid://ci4l8ffsw6xm6"]
+[gd_scene load_steps=29 format=3 uid="uid://ci4l8ffsw6xm6"]
 
 [ext_resource type="Script" path="res://party_room/party_room.gd" id="1_078a3"]
+[ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_up1jr"]
 [ext_resource type="Texture2D" uid="uid://cetptcnry47l2" path="res://party_room/Untitled_Artwork (27).png" id="2_us5o7"]
 [ext_resource type="Texture2D" uid="uid://klel4flsrtyq" path="res://party_room/Untitled_Artwork (29).png" id="3_byfbw"]
 [ext_resource type="Texture2D" uid="uid://ljp86ne1vwoi" path="res://party_room/Untitled_Artwork (33).png" id="3_in1j7"]
 [ext_resource type="PackedScene" uid="uid://bwjfjnnjnuf82" path="res://items/phone.tscn" id="5_5t23l"]
+[ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="7_slm65"]
+[ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="8_slixk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kh1lg"]
+radius = 67.2086
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po72i"]
 size = Vector2(395.387, 219.821)
@@ -67,158 +73,215 @@ size = Vector2(94, 160)
 position = Vector2(18, -94)
 script = ExtResource("1_078a3")
 
-[node name="background" type="Sprite2D" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 1159.0
+offset_bottom = 653.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport1" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+position = Vector2(363, 165)
+
+[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_up1jr")]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D"]
+shape = SubResource("CircleShape2D_kh1lg")
+
+[node name="level" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+z_index = -10
+position = Vector2(18, -94)
+
+[node name="background" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(1780, 626)
 scale = Vector2(0.623963, 0.646882)
 texture = ExtResource("2_us5o7")
 
-[node name="background2" type="Sprite2D" parent="."]
+[node name="background2" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 visible = false
 position = Vector2(1781, 622.5)
 scale = Vector2(0.625346, 0.652878)
 texture = ExtResource("3_in1j7")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="background2"]
+[node name="background2#StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/background2"]
+position = Vector2(-2848.02, -953.471)
+scale = Vector2(1.59911, 1.53168)
 
-[node name="lampInPunch" type="CollisionShape2D" parent="background2/StaticBody2D"]
-position = Vector2(-304.034, 93.1177)
-scale = Vector2(1, 1)
+[node name="background2_StaticBody2D#lampInPunch" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/background2"]
+position = Vector2(-3334.21, -810.844)
+scale = Vector2(1.59911, 1.53168)
 shape = SubResource("RectangleShape2D_po72i")
 
-[node name="walls" type="StaticBody2D" parent="."]
+[node name="walls" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(1778.56, 823.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_8w3r0")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="walls/StaticBody2D"]
+[node name="walls_StaticBody2D#CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(164.5, 354.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_72p7c")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="walls/StaticBody2D2"]
+[node name="walls_StaticBody2D2#CollisionShape2D11" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3577.72, 211.309)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_tvjjh")
 
-[node name="StaticBody2D3" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D3" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="walls/StaticBody2D3"]
+[node name="walls_StaticBody2D3#CollisionShape2D10" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3401.69, 349.883)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_rng40")
 
-[node name="StaticBody2D4" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D4" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="walls/StaticBody2D4"]
+[node name="walls_StaticBody2D4#CollisionShape2D9" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(3247, 622)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_wtjmw")
 
-[node name="StaticBody2D5" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D5" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="walls/StaticBody2D5"]
+[node name="walls_StaticBody2D5#CollisionShape2D8" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(313, 631.066)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_wtjmw")
 
-[node name="StaticBody2D6" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D6" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="walls/StaticBody2D6"]
+[node name="walls_StaticBody2D6#CollisionShape2D7" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(1674.56, 72.1172)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_61x2s")
 
-[node name="StaticBody2D7" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D7" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="walls/StaticBody2D7"]
+[node name="walls_StaticBody2D7#CollisionShape2D6" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(2886.44, 385.133)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_ohsbm")
 
-[node name="StaticBody2D8" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D8" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="walls/StaticBody2D8"]
+[node name="walls_StaticBody2D8#CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(1952.82, 382.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_tq77g")
 
-[node name="StaticBody2D9" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D9" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="walls/StaticBody2D9"]
+[node name="walls_StaticBody2D9#CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(897.315, 385.258)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_6ihhr")
 
-[node name="StaticBody2D10" type="StaticBody2D" parent="walls"]
+[node name="walls#StaticBody2D10" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="walls/StaticBody2D10"]
+[node name="walls_StaticBody2D10#CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
 position = Vector2(-17.5, 211.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_a0f1p")
 
-[node name="PunchBowlArea" type="Area2D" parent="."]
+[node name="PunchBowlArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="punchBowl" type="CollisionPolygon2D" parent="PunchBowlArea"]
+[node name="punchBowl" type="CollisionPolygon2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea"]
 polygon = PackedVector2Array(1465, 637, 1716, 636, 1716, 650, 1714, 655, 1713, 662, 1711, 670, 1709, 678, 1705, 690, 1701, 696, 1696, 705, 1691, 713, 1685, 719, 1680, 725, 1673, 732, 1667, 738, 1658, 742, 1649, 746, 1640, 748, 1634, 750, 1624, 753, 1616, 754, 1604, 755, 1589, 755, 1580, 755, 1572, 755, 1564, 755, 1557, 755, 1543, 751, 1535, 748, 1527, 745, 1522, 742, 1514, 738, 1511, 735, 1503, 725, 1493, 713, 1486, 702, 1481, 694, 1476, 685, 1472, 676, 1469, 669, 1467, 662, 1465, 656, 1464, 650, 1464, 643)
 
-[node name="lampStaticBody" type="StaticBody2D" parent="."]
+[node name="lampStaticBody" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(1576, 202)
 
-[node name="lamp" type="CollisionShape2D" parent="lampStaticBody"]
+[node name="lamp" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/lampStaticBody"]
 shape = SubResource("RectangleShape2D_grunc")
 
-[node name="exitArea" type="Area2D" parent="."]
+[node name="exitArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(3462.88, 179.5)
 
-[node name="exit" type="CollisionShape2D" parent="exitArea"]
+[node name="exit" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea"]
 shape = SubResource("RectangleShape2D_phyts")
 
-[node name="glasses" type="Sprite2D" parent="."]
+[node name="glasses" type="Sprite2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(2384, 604)
 scale = Vector2(0.623984, 0.556838)
 texture = ExtResource("3_byfbw")
 
-[node name="StaticBody2D" type="StaticBody2D" parent="glasses"]
+[node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses"]
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="glasses/StaticBody2D"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
 position = Vector2(150.549, 3.78564)
 shape = SubResource("RectangleShape2D_iqah0")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="glasses/StaticBody2D"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
 position = Vector2(-8.01294, 130.587)
 shape = SubResource("RectangleShape2D_vnkbs")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="glasses/StaticBody2D"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
 position = Vector2(-116.99, 162.331)
 shape = SubResource("RectangleShape2D_yvymq")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="glasses/StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
 position = Vector2(-197.617, 202.932)
 shape = SubResource("RectangleShape2D_8ilg6")
 
-[node name="InvisbleStaticBody" type="StaticBody2D" parent="."]
+[node name="InvisbleStaticBody" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(3259, 211)
 
-[node name="invisiableDoor" type="CollisionShape2D" parent="InvisbleStaticBody"]
+[node name="invisiableDoor" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/InvisbleStaticBody"]
 shape = SubResource("RectangleShape2D_2a32t")
 
-[node name="bePuffedArea" type="Area2D" parent="."]
+[node name="bePuffedArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="bePuffed" type="CollisionShape2D" parent="bePuffedArea"]
+[node name="bePuffed" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea"]
 position = Vector2(1747, 272)
 shape = SubResource("RectangleShape2D_c4b66")
 
-[node name="Phone" parent="." instance=ExtResource("5_5t23l")]
+[node name="Phone" parent="HBoxContainer/SubViewportContainer/SubViewport1/level" instance=ExtResource("5_5t23l")]
 position = Vector2(594, 650)
 
-[connection signal="area_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
-[connection signal="body_entered" from="PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
-[connection signal="area_entered" from="exitArea" to="." method="_on_exit_area_area_entered"]
-[connection signal="body_entered" from="exitArea" to="." method="_on_exit_area_body_entered"]
-[connection signal="area_entered" from="bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("7_slm65")]
+position = Vector2(572, 367)
+collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+position = Vector2(572, 367)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_slixk")
+autoplay = true
+parameters/looping = false
+
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_area_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_area_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_body_entered"]
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]
+
+[editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]

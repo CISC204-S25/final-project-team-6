@@ -1,7 +1,13 @@
-[gd_scene load_steps=20 format=3 uid="uid://dhda3qnrg4m53"]
+[gd_scene load_steps=24 format=3 uid="uid://dhda3qnrg4m53"]
 
 [ext_resource type="Script" path="res://vent_room/vent_room.gd" id="1_5gc37"]
 [ext_resource type="Texture2D" uid="uid://bbf2mxj0tg15v" path="res://vent_room/Untitled_Artwork (30).png" id="1_waub8"]
+[ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_37vik"]
+[ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="4_fcmai"]
+[ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="5_2p56j"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ugh8b"]
+radius = 67.2086
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86utw"]
 size = Vector2(57, 221.5)
@@ -57,93 +63,147 @@ size = Vector2(202.5, 81)
 [node name="Vent_Room" type="Node2D"]
 script = ExtResource("1_5gc37")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 1.0
+offset_top = 5.0
+offset_right = 1159.0
+offset_bottom = 653.0
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport1" type="SubViewport" parent="HBoxContainer/SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+position = Vector2(363, 165)
+
+[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_37vik")]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D"]
+shape = SubResource("CircleShape2D_ugh8b")
+
+[node name="level" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
+z_index = -10
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 offset_right = 1581.0
 offset_bottom = 1187.0
 texture = ExtResource("1_waub8")
 expand_mode = 1
 
-[node name="Stopper1" type="StaticBody2D" parent="."]
+[node name="Stopper1" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stopper1"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Stopper1"]
 position = Vector2(1076, 334.75)
 shape = SubResource("RectangleShape2D_86utw")
 
-[node name="Stopper2" type="StaticBody2D" parent="."]
+[node name="Stopper2" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Stopper2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Stopper2"]
 position = Vector2(1508, 331.5)
 shape = SubResource("RectangleShape2D_jjy1f")
 
-[node name="Walls" type="StaticBody2D" parent="."]
+[node name="Walls" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(246, 66)
 shape = SubResource("RectangleShape2D_lmw5p")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(126.75, 313.75)
 shape = SubResource("RectangleShape2D_jy31q")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(265, 633.75)
 shape = SubResource("RectangleShape2D_caw6g")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(509, 420.5)
 shape = SubResource("RectangleShape2D_f7k3m")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(577.25, 1007)
 shape = SubResource("RectangleShape2D_62avu")
 
-[node name="CollisionShape2D6" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(582.25, 774.25)
 shape = SubResource("RectangleShape2D_udwng")
 
-[node name="CollisionShape2D7" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(659.25, 373.5)
 shape = SubResource("RectangleShape2D_q0gau")
 
-[node name="CollisionShape2D8" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(1261, 812)
 shape = SubResource("RectangleShape2D_q0gau")
 
-[node name="CollisionShape2D9" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(904, 736)
 shape = SubResource("RectangleShape2D_7hfys")
 
-[node name="CollisionShape2D10" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(1081.25, 458)
 shape = SubResource("RectangleShape2D_2co38")
 
-[node name="CollisionShape2D11" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(1230.5, 203)
 shape = SubResource("RectangleShape2D_n74go")
 
-[node name="CollisionShape2D12" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(865.25, 114)
 shape = SubResource("RectangleShape2D_3ncgu")
 
-[node name="CollisionShape2D13" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(1534.5, 814.75)
 shape = SubResource("RectangleShape2D_th4sq")
 
-[node name="CollisionShape2D14" type="CollisionShape2D" parent="Walls"]
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/Walls"]
 position = Vector2(9.5, 200)
 shape = SubResource("RectangleShape2D_fcq7m")
 
-[node name="BathroomArea" type="Area2D" parent="."]
+[node name="BathroomArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="Bedroom" type="CollisionShape2D" parent="BathroomArea"]
+[node name="Bedroom" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/BathroomArea"]
 position = Vector2(768, 29)
 shape = SubResource("RectangleShape2D_c74lr")
 
-[node name="PartyRoomArea" type="Area2D" parent="."]
+[node name="PartyRoomArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
-[node name="PartyRoom" type="CollisionShape2D" parent="PartyRoomArea"]
+[node name="PartyRoom" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/PartyRoomArea"]
 position = Vector2(1390.75, 1154.5)
 shape = SubResource("RectangleShape2D_cpgh3")
 
-[connection signal="body_entered" from="BathroomArea" to="." method="_on_bathroom_area_body_entered"]
-[connection signal="body_entered" from="PartyRoomArea" to="." method="_on_party_room_area_body_entered"]
+[node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
+layout_mode = 2
+
+[node name="SubViewport2" type="SubViewport" parent="HBoxContainer/SubViewportContainer2"]
+disable_3d = true
+handle_input_locally = false
+size = Vector2i(576, 648)
+render_target_update_mode = 4
+
+[node name="pufferfish" parent="HBoxContainer/SubViewportContainer2/SubViewport2" instance=ExtResource("4_fcmai")]
+position = Vector2(572, 367)
+collision_layer = 3
+
+[node name="Camera2D2" type="Camera2D" parent="HBoxContainer/SubViewportContainer2/SubViewport2"]
+position = Vector2(572, 367)
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2p56j")
+autoplay = true
+parameters/looping = false
+
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/BathroomArea" to="." method="_on_bathroom_area_body_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PartyRoomArea" to="." method="_on_party_room_area_body_entered"]
+
+[editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]
