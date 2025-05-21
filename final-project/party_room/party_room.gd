@@ -58,7 +58,7 @@ func _on_be_puffed_area_body_entered(body: Node2D) -> void:
 		$HBoxContainer/SubViewportContainer/SubViewport1/level/lampStaticBody/lamp.set_deferred("disabled", true)
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
-	pass
+	get_tree().change_scene_to_file("res://vent_room/vent_room.tscn")
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swimming.emit();
@@ -73,3 +73,4 @@ func _on_phone_body_entered(body : Node2D) -> void:
 	print("got Phone!")
 	$HBoxContainer/SubViewportContainer/SubViewport1/level/Phone.hide()
 	Phone.gotPhone = true
+	$HBoxContainer/SubViewportContainer/SubViewport1/level/InvisbleStaticBody/invisiableDoor.set_deferred("disabled", true)
