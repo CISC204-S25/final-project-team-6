@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://ci4l8ffsw6xm6"]
+[gd_scene load_steps=33 format=3 uid="uid://ci4l8ffsw6xm6"]
 
 [ext_resource type="Script" path="res://party_room/party_room.gd" id="1_078a3"]
 [ext_resource type="PackedScene" uid="uid://cv1x731ovllyw" path="res://pelican/pelican.tscn" id="2_up1jr"]
@@ -8,6 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://bwjfjnnjnuf82" path="res://items/phone.tscn" id="5_5t23l"]
 [ext_resource type="PackedScene" uid="uid://bab6pnm5d3icy" path="res://pufferfish/pufferfish.tscn" id="7_slm65"]
 [ext_resource type="AudioStream" uid="uid://lyukyh4n840l" path="res://Audio/Background Music.mp3" id="8_slixk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kh1lg"]
+radius = 67.2086
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_po72i"]
 size = Vector2(395.387, 219.821)
@@ -42,9 +45,15 @@ size = Vector2(1785.96, 47.1252)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_a0f1p"]
 size = Vector2(46.2684, 388.975)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4m240"]
+size = Vector2(74.295, 13.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtfam"]
+size = Vector2(96, 12.3867)
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_u74ex"]
-radius = 90.0
-height = 184.375
+radius = 94.0
+height = 188.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_grunc"]
 size = Vector2(203.5, 138.5)
@@ -53,7 +62,7 @@ size = Vector2(203.5, 138.5)
 size = Vector2(199.75, 315)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqah0"]
-size = Vector2(166.863, 545.552)
+size = Vector2(166.863, 429.209)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vnkbs"]
 size = Vector2(141.03, 281.174)
@@ -64,14 +73,14 @@ size = Vector2(77.1172, 216.911)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ilg6"]
 size = Vector2(87.5343, 135.71)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s4nmf"]
+size = Vector2(478.108, 29.4879)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2a32t"]
 size = Vector2(80, 245.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4b66"]
-size = Vector2(94, 160)
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_kh1lg"]
-radius = 67.2086
+size = Vector2(222, 160)
 
 [node name="party_room" type="Node2D"]
 position = Vector2(18, -94)
@@ -94,6 +103,15 @@ render_target_update_mode = 4
 
 [node name="Camera2D1" type="Camera2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
 position = Vector2(363, 165)
+
+[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_up1jr")]
+collision_layer = 5
+collision_mask = 5
+
+[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D"]
+shape = SubResource("CircleShape2D_kh1lg")
 
 [node name="level" type="Node2D" parent="HBoxContainer/SubViewportContainer/SubViewport1"]
 z_index = -10
@@ -196,6 +214,26 @@ position = Vector2(-17.5, 211.5)
 scale = Vector2(0.623963, 0.646882)
 shape = SubResource("RectangleShape2D_a0f1p")
 
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
+position = Vector2(1525.82, 742.207)
+rotation = 0.483456
+shape = SubResource("RectangleShape2D_4m240")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
+position = Vector2(1649, 746)
+rotation = -0.483456
+shape = SubResource("RectangleShape2D_4m240")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
+position = Vector2(1488, 709)
+rotation = 1.12748
+shape = SubResource("RectangleShape2D_gtfam")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/walls"]
+position = Vector2(1694, 710)
+rotation = -1.12748
+shape = SubResource("RectangleShape2D_gtfam")
+
 [node name="PunchBowlArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea"]
@@ -223,7 +261,7 @@ texture = ExtResource("3_byfbw")
 [node name="StaticBody2D" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses"]
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
-position = Vector2(150.549, 3.78564)
+position = Vector2(150.549, 61.957)
 shape = SubResource("RectangleShape2D_iqah0")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
@@ -238,29 +276,27 @@ shape = SubResource("RectangleShape2D_yvymq")
 position = Vector2(-197.617, 202.932)
 shape = SubResource("RectangleShape2D_8ilg6")
 
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/glasses/StaticBody2D"]
+position = Vector2(44.3601, -119.164)
+rotation = -0.699456
+scale = Vector2(1.67484, 1.72868)
+skew = 0.109131
+shape = SubResource("RectangleShape2D_s4nmf")
+
 [node name="InvisbleStaticBody" type="StaticBody2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 position = Vector2(3259, 211)
 
 [node name="invisiableDoor" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/InvisbleStaticBody"]
 shape = SubResource("RectangleShape2D_2a32t")
 
+[node name="Phone" parent="HBoxContainer/SubViewportContainer/SubViewport1/level" instance=ExtResource("5_5t23l")]
+position = Vector2(580, 614)
+
 [node name="bePuffedArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
 [node name="bePuffed" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea"]
-position = Vector2(1747, 272)
+position = Vector2(1811, 272)
 shape = SubResource("RectangleShape2D_c4b66")
-
-[node name="Phone" parent="HBoxContainer/SubViewportContainer/SubViewport1/level" instance=ExtResource("5_5t23l")]
-position = Vector2(594, 650)
-
-[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1" instance=ExtResource("2_up1jr")]
-collision_layer = 5
-collision_mask = 5
-
-[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D"]
-shape = SubResource("CircleShape2D_kh1lg")
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
@@ -285,11 +321,12 @@ parameters/looping = false
 
 [connection signal="notSwimming" from="." to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_party_room_not_swimming"]
 [connection signal="swimming" from="." to="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish" method="_on_party_room_swimming"]
+[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_body_entered"]
 [connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/level/PunchBowlArea" to="." method="_on_punch_bowl_area_body_exited"]
 [connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_area_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/exitArea" to="." method="_on_exit_area_body_entered"]
-[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea" to="." method="_on_be_puffed_area_area_entered"]
-[connection signal="area_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/pelican/Area2D" to="HBoxContainer/SubViewportContainer/SubViewport1/pelican" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/Phone" to="." method="_on_phone_body_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/level/bePuffedArea" to="." method="_on_be_puffed_area_body_entered"]
 
 [editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]

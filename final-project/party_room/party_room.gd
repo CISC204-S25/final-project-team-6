@@ -59,13 +59,14 @@ func _on_swimming_body_exited(body: Node2D) -> void:
 
 
 func _on_be_puffed_area_body_entered(body: Node2D) -> void:
-	if(IsPuffed.puffed == true):
-		$HBoxContainer/SubViewportContainer/SubViewport1/level/background2.show()
-		$HBoxContainer/SubViewportContainer/SubViewport1/level/lampStaticBody.hide()
+	if(IsPuffed.puffed == true && body):
+		print("making lamp fall")
+		$HBoxContainer/SubViewportContainer/SubViewport1/level/background.visible = false
+		$HBoxContainer/SubViewportContainer/SubViewport1/level/background2.visible = true
+		$HBoxContainer/SubViewportContainer/SubViewport1/level/lampStaticBody/lamp.set_deferred("disabled", true)
 
 func _on_exit_area_body_entered(body: Node2D) -> void:
-	#leads back to the vent room
-	pass # Replace with function body.
+	pass
 
 func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 	swimming.emit();
@@ -75,3 +76,8 @@ func _on_punch_bowl_area_body_entered(body: Node2D) -> void:
 func _on_punch_bowl_area_body_exited(body: Node2D) -> void:
 	notSwimming.emit();
 	swim = 0;
+
+func _on_phone_body_entered(body : Node2D) -> void:
+	print("got Phone!")
+	$HBoxContainer/SubViewportContainer/SubViewport1/level/Phone.hide()
+	Phone.gotPhone = true

@@ -160,11 +160,23 @@ func _process(delta):
 			out_of_water_timer = 0.0
 	else:
 		out_of_water_timer = 0.0
+		#
+	#if(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == false):
+		#IsPuffed.puffed = true;
+		#$AnimatedSprite2D.play("puffing_up")
+	#elif(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == true):
+		#IsPuffed.puffed = false;
+		#$AnimatedSprite2D.play_backwards("puffing_up")
+		#await get_tree().create_timer(3).timeout
+		#$AnimatedSprite2D.stop()
 		
-	if(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == false):
+
+func _input(event: InputEvent) -> void:
+	if(event.is_action_pressed("Puffing") && IsPuffed.puffed == false):
 		IsPuffed.puffed = true;
 		$AnimatedSprite2D.play("puffing_up")
-	elif(Input.is_action_just_pressed("Puffing") && IsPuffed.puffed == true):
+		_on_animated_sprite_2d_animation_finished()
+	elif(event.is_action_pressed("Puffing") && IsPuffed.puffed == true):
 		IsPuffed.puffed = false;
 		$AnimatedSprite2D.play_backwards("puffing_up")
 		await get_tree().create_timer(3).timeout
