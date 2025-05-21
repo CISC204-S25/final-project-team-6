@@ -47,10 +47,11 @@ func _process(delta: float) -> void:
 	pass
 
 
+func _on_bathroom_area_body_entered(body: Node2D) -> void:
+	print("bathroom")
+	get_tree().change_scene_to_file("res://bathroom/bathroom.tscn")
+
 
 func _on_party_room_area_body_entered(body: Node2D) -> void:
+	print("party room")
 	get_tree().change_scene_to_file("res://party_room/party_room.tscn")
-
-
-func _on_bathroom_area_body_entered(body: Node2D) -> void:
-	get_tree().change_scene_to_file("res://bedroom/bedroom.tscn")

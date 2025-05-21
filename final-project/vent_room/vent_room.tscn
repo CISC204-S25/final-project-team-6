@@ -55,10 +55,10 @@ size = Vector2(89, 750.5)
 size = Vector2(39, 222)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c74lr"]
-size = Vector2(187, 60)
+size = Vector2(133, 60)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cpgh3"]
-size = Vector2(202.5, 81)
+size = Vector2(180, 81)
 
 [node name="Vent_Room" type="Node2D"]
 script = ExtResource("1_5gc37")
@@ -172,14 +172,16 @@ shape = SubResource("RectangleShape2D_fcq7m")
 [node name="BathroomArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
 [node name="Bedroom" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/BathroomArea"]
-position = Vector2(768, 29)
+position = Vector2(769.5, 29)
 shape = SubResource("RectangleShape2D_c74lr")
 
 [node name="PartyRoomArea" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level"]
 
 [node name="PartyRoom" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/level/PartyRoomArea"]
-position = Vector2(1390.75, 1154.5)
+position = Vector2(1390, 1154.5)
 shape = SubResource("RectangleShape2D_cpgh3")
+
+[node name="pelican" parent="HBoxContainer/SubViewportContainer/SubViewport1/level" instance=ExtResource("2_37vik")]
 
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
