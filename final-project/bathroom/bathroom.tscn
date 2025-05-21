@@ -1,4 +1,4 @@
-[gd_scene load_steps=40 format=3 uid="uid://c78mcnowa58pg"]
+[gd_scene load_steps=41 format=3 uid="uid://c78mcnowa58pg"]
 
 [ext_resource type="Script" path="res://bathroom/bathroom.gd" id="1_6ydqp"]
 [ext_resource type="Texture2D" uid="uid://ddpbvgqd36uec" path="res://bathroom/Untitled_Artwork (25).png" id="2_4m42d"]
@@ -38,10 +38,10 @@ size = Vector2(200, 785)
 size = Vector2(1589, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_11p6r"]
-size = Vector2(279.5, 53)
+size = Vector2(280, 46)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4dcyg"]
-size = Vector2(462, 33)
+size = Vector2(462, 62.9045)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xx1kc"]
 size = Vector2(172, 42)
@@ -62,13 +62,13 @@ size = Vector2(22.3524, 11)
 size = Vector2(14, 40)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tfxe"]
-size = Vector2(608, 94)
+size = Vector2(595, 89)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2bxad"]
 size = Vector2(164, 165)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bnd44"]
-size = Vector2(445.5, 108.525)
+size = Vector2(409.693, 110.731)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_t46x2"]
 size = Vector2(49, 244.5)
@@ -100,6 +100,9 @@ size = Vector2(8.65451, 142.115)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qx2by"]
 size = Vector2(160.5, 145.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2dq3h"]
+size = Vector2(889, 383)
 
 [node name="Bathroom" type="Node2D"]
 script = ExtResource("1_6ydqp")
@@ -182,11 +185,11 @@ position = Vector2(756.5, -30.5)
 shape = SubResource("RectangleShape2D_4yj4v")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/walls"]
-position = Vector2(433.25, 636.5)
+position = Vector2(433, 640)
 shape = SubResource("RectangleShape2D_11p6r")
 
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/walls"]
-position = Vector2(518, 575)
+position = Vector2(521.976, 589.414)
 rotation = -0.269135
 shape = SubResource("RectangleShape2D_4dcyg")
 
@@ -220,7 +223,7 @@ position = Vector2(2, 6)
 metadata/_edit_group_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes"]
-position = Vector2(428, 450)
+position = Vector2(421.5, 447.5)
 shape = SubResource("RectangleShape2D_7tfxe")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes"]
@@ -228,7 +231,7 @@ position = Vector2(204, 569)
 shape = SubResource("RectangleShape2D_2bxad")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes"]
-position = Vector2(481.307, 494.616)
+position = Vector2(463.794, 498.494)
 rotation = -0.279453
 shape = SubResource("RectangleShape2D_bnd44")
 
@@ -323,6 +326,14 @@ theme_override_fonts/font = ExtResource("6_hbyc4")
 theme_override_font_sizes/font_size = 25
 text = "Open the door"
 
+[node name="Area2D" type="Area2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level"]
+position = Vector2(101, 71)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HBoxContainer/SubViewportContainer/SubViewport1/Level/Area2D"]
+position = Vector2(356.5, 129.5)
+shape = SubResource("RectangleShape2D_2dq3h")
+
 [node name="SubViewportContainer2" type="SubViewportContainer" parent="HBoxContainer"]
 layout_mode = 2
 
@@ -351,5 +362,6 @@ parameters/looping = false
 [connection signal="body_exited" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/pool_pipes" to="." method="_on_pool_pipes_body_exited"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/NextLevel" to="." method="_on_next_level_body_entered"]
 [connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/bePuffed" to="." method="_on_be_puffed_body_entered"]
+[connection signal="body_entered" from="HBoxContainer/SubViewportContainer/SubViewport1/Level/Area2D" to="." method="_on_area_2d_body_entered"]
 
 [editable path="HBoxContainer/SubViewportContainer2/SubViewport2/pufferfish"]

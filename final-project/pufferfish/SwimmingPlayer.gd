@@ -87,7 +87,7 @@ func _on_bathroom_swimming() -> void:
 		last_water_position = global_position # Save current position
 		out_of_water_timer = 0.0 # reset out-of-water timer
 		sprite.modulate = Color(1, 1, 1)
-	print("Entered water")
+	print("Entered water B")
 
 
 func _on_bathroom_not_swimming() -> void:
